@@ -5704,3 +5704,162 @@ body.sx-light .gt-tab:not(.active){background:#fff}
     });
 })();
 </script>
+<script>
+/* ===== Firebase: داواکاری پارە، ئاگادارکردنەوە، لیستی بەکارهێنەران ===== */
+(function () {
+    if (!window.firebase || !firebase.apps.length) return;
+    var db = firebase.database(), auth = firebase.auth();
+    var REQ = [], last = '', offs = [], pf = {}, tm = null;
+    var say = function (m) { (window.sxToast || window.alert)(m); };
+
+    window.getRequests = function () { return REQ; };
+    function rerender() {
+        clearTimeout(tm);
+        tm = setTimeout(function () {
+            var p = $('pageAdmin');
+            if (p && p.classList.contains('active') && typeof renderAdmin === 'function') renderAdmin();
+        }, 250);
+    }
+    function map(uid, id, v) {
+        return { id: id, uid: uid, kind: v.kind, user: v.name || '', key: String(v.name || '').toLowerCase(), method: v.method,
+                 account: v.account, amount: Number(v.amount), status: v.status, t: v.t, hasProof: !!v.hasProof };
+    }
+    function localNotif(key, text, fid) {
+        var l = dbGet('spayx_notifs', []); if (!Array.isArray(l)) l = [];
+        if (fid && l.some(function (n) { return n.fid === fid; })) return;
+        l.push({ t: Date.now(), to: key, text: text, fid: fid || '' });
+        if (l.length > 300) l.splice(0, l.length - 300);
+        dbSet('spayx_notifs', l);
+    }
+    function fetchProofs() {
+        REQ.forEach(function (r) {
+            if (r.kind !== 'deposit' || !r.hasProof || r.status !== 'pending' || pf[r.id] || localStorage.getItem('spayx_proof_' + r.id)) return;
+            pf[r.id] = 1;
+            db.ref('proofs/' + r.uid + '/' + r.id).once('value').then(function (s) {
+                if (s.exists()) { try { localStorage.setItem('spayx_proof_' + r.id, s.val()); } catch (e) {} rerender(); }
+            }).catch(function () {});
+        });
+    }
+
+    // ---- هاوکاتکردن بەپێی ئەو کەسەی چووەتە ژوورەوە ----
+    function on(ref, ev, cb) { ref.on(ev, cb); offs.push(function () { ref.off(ev, cb); }); }
+    function stop() { offs.forEach(function (f) { f(); }); offs = []; }
+    function start(cu) {
+        var uid = cu.id;
+        if (cu.role === 'admin') {
+            on(db.ref('requests'), 'value', function (s) {
+                var out = [];
+                s.forEach(function (u) { u.forEach(function (r) { out.push(map(u.key, r.key, r.val())); }); });
+                REQ = out; fetchProofs(); rerender();
+            });
+            on(db.ref('users'), 'value', function (s) {
+                var me = currentUser(); if (!me) return;
+                var list = [], mine = getUsers().find(function (x) { return x.key === me.key; });
+                if (mine) list.push(mine);
+                s.forEach(function (c) {
+                    var v = c.val(); if (!v || !v.name || c.key === me.id) return;
+                    list.push({ id: c.key, name: v.name, key: String(v.name).toLowerCase(), salt: '', scheme: 'fb', hash: '', role: 'user',
+                                balance: Number(v.balance) || 0, banned: !!v.banned, createdAt: v.createdAt || 0, gameId: v.gameId || '' });
+                });
+                saveUsers(list); rerender();
+            });
+        } else {
+            on(db.ref('requests/' + uid), 'value', function (s) {
+                var out = []; s.forEach(function (r) { out.push(map(uid, r.key, r.val())); }); REQ = out;
+            });
+            on(db.ref('users/' + uid + '/banned'), 'value', function (s) {
+                if (s.val() === true) { alert('ئەم هەژمارە بلۆک کراوە'); auth.signOut().then(function () { localStorage.removeItem('spayx_session'); location.reload(); }); }
+            });
+        }
+        on(db.ref('notifs/' + uid), 'child_added', function (s) {
+            var v = s.val(); if (v && v.text) localNotif(cu.key, v.text, s.key);
+        });
+    }
+    setInterval(function () {
+        var cu = currentUser(), sig = cu && auth.currentUser ? cu.id + ':' + cu.role : '';
+        if (sig === last) return;
+        stop(); last = sig; REQ = [];
+        if (sig) start(cu);
+    }, 800);
+
+    // ---- ناردنی داواکاری زیادکردن ----
+    window.submitDeposit = async function () {
+        var cu = requireUser(); if (!cu) return;
+        var amount = Math.floor(Number($('depAmount').value));
+        if (!(amount > 0) || amount > 1000000000) { alert('تکایە بڕێکی دروست بنووسە'); return; }
+        if (!depositProof) { alert('تکایە وێنەی ڕەسیدی ناردنی پارەکە دابنێ'); return; }
+        try {
+            var id = db.ref('requests/' + cu.id).push().key;
+            await db.ref('proofs/' + cu.id + '/' + id).set(depositProof);
+            await db.ref('requests/' + cu.id + '/' + id).set({ kind: 'deposit', name: cu.name, method: payMethod, account: $('depAccNum').innerText,
+                amount: amount, status: 'pending', t: Date.now(), hasProof: true });
+            addLog('deposit', cu.name, money(amount) + ' دینار - ' + payMethod);
+            localNotif(cu.key, 'داواکاری زیادکردنی ' + money(amount) + ' دینار نێردرا. چاوەڕێی قبوڵکردنی بەڕێوەبەر بە.');
+            $('depAmount').value = ''; removeProof(); say('داواکارییەکەت نێردرا ✅');
+        } catch (e) { alert('نەتوانرا داواکارییەکە بنێردرێت. دووبارە هەوڵ بدە'); }
+    };
+
+    // ---- ناردنی داواکاری ڕاکێشان ----
+    window.submitWithdraw = async function () {
+        var cu = requireUser(); if (!cu) return;
+        var method = $('wdMethod').value, account = $('wdAccount').value.trim(), amount = Math.floor(Number($('wdAmount').value));
+        if (!account) { alert('تکایە ژمارەی هەژمارەکەت بنووسە'); return; }
+        if (!(amount > 0) || amount > 1000000000) { alert('تکایە بڕێکی دروست بنووسە'); return; }
+        var held = REQ.filter(function (r) { return r.kind === 'withdraw' && r.status === 'pending'; }).reduce(function (s, r) { return s + r.amount; }, 0);
+        if (amount + held > cu.balance) { alert('باڵانسەکەت بەش ناکات'); return; }
+        try {
+            var id = db.ref('requests/' + cu.id).push().key;
+            await db.ref('requests/' + cu.id + '/' + id).set({ kind: 'withdraw', name: cu.name, method: method, account: account, amount: amount, status: 'pending', t: Date.now() });
+            addLog('withdraw', cu.name, money(amount) + ' دینار - ' + method);
+            localNotif(cu.key, 'داواکاری ڕاکێشانی ' + money(amount) + ' دینار نێردرا. چاوەڕێی قبوڵکردنی بەڕێوەبەر بە.');
+            $('wdAccount').value = ''; $('wdAmount').value = ''; say('داواکارییەکەت نێردرا ✅');
+        } catch (e) { alert('نەتوانرا داواکارییەکە بنێردرێت. دووبارە هەوڵ بدە'); }
+    };
+
+    // ---- بڕیاری ئەدمین ----
+    window.decideRequest = async function (id, approve) {
+        var adm = requireAdmin(); if (!adm) return;
+        var r = REQ.find(function (x) { return x.id === id; });
+        if (!r || r.status !== 'pending') return;
+        if (!confirm(approve ? 'قبوڵکردنی ئەم داواکارییە؟' : 'ڕەتکردنەوەی ئەم داواکارییە؟')) return;
+        var ref = db.ref('requests/' + r.uid + '/' + id), st = approve ? 'approved' : 'rejected';
+        try {
+            var t1 = await ref.child('status').transaction(function (s) { return s === 'pending' ? st : undefined; });
+            if (!t1.committed) { alert('ئەم داواکارییە پێشتر بڕیاری لەسەر دراوە'); return; }
+            if (approve) {
+                var delta = r.kind === 'deposit' ? r.amount : -r.amount;
+                var t2 = await db.ref('users/' + r.uid + '/balance').transaction(function (b) {
+                    b = b || 0; if (delta < 0 && b < -delta) return; return b + delta;
+                });
+                if (!t2.committed) { await ref.child('status').set('pending'); alert('باڵانسی بەکارهێنەر بەش ناکات'); return; }
+            }
+            await ref.child('decidedAt').set(Date.now());
+            var kind = r.kind === 'deposit' ? 'زیادکردنی' : 'ڕاکێشانی';
+            await db.ref('notifs/' + r.uid).push({ t: Date.now(), text: 'داواکاری ' + kind + ' ' + money(r.amount) + ' دینار ' + (approve ? 'قبوڵکرا ✅' : 'ڕەتکرایەوە ❌') });
+            localStorage.removeItem('spayx_proof_' + id);
+            addLog('admin', adm.name, (approve ? 'قبوڵکرا: ' : 'ڕەتکرایەوە: ') + kind + ' ' + money(r.amount) + ' - ' + r.user);
+            rerender();
+        } catch (e) { alert('کێشە ڕوویدا. دووبارە هەوڵ بدە'); }
+    };
+
+    // ---- ئەدمین: گۆڕینی باڵانس و بلۆککردن ----
+    window.setBalance = async function (key) {
+        var adm = requireAdmin(); if (!adm) return;
+        var u = getUsers().find(function (x) { return x.key === key; }); if (!u || u.role === 'admin') return;
+        var v = prompt('باڵانسی نوێی «' + u.name + '» (دینار):', u.balance); if (v === null) return;
+        var n = Math.floor(Number(v)); if (!(n >= 0) || n > 1000000000) { alert('بڕەکە دروست نییە'); return; }
+        try {
+            await db.ref('users/' + u.id + '/balance').set(n);
+            await db.ref('notifs/' + u.id).push({ t: Date.now(), text: 'باڵانسەکەت لەلایەن بەڕێوەبەرەوە گۆڕدرا بۆ ' + money(n) + ' دینار' });
+            addLog('admin', adm.name, 'باڵانسی ' + u.name + ': ' + money(u.balance) + ' ← ' + money(n));
+        } catch (e) { alert('کێشە ڕوویدا'); }
+    };
+    window.toggleBan = async function (key) {
+        var adm = requireAdmin(); if (!adm) return;
+        var u = getUsers().find(function (x) { return x.key === key; }); if (!u || u.role === 'admin') return;
+        try { await db.ref('users/' + u.id + '/banned').set(!u.banned); addLog('admin', adm.name, (u.banned ? 'بلۆکی کرایەوە: ' : 'بلۆککرا: ') + u.name); }
+        catch (e) { alert('کێشە ڕوویدا'); }
+    };
+    window.deleteUser = function () { alert('سڕینەوەی هەژمار لێرە ناکرێت. بەجێی ئەوە بلۆکی بکە'); };
+})();
+</script>
