@@ -5955,3 +5955,343 @@ body.sx-light .gt-tab:not(.active){background:#fff}
     }, 800);
 })();
 </script>
+<style>
+#kkOv{position:fixed;inset:0;z-index:6100;display:none;overflow-y:auto;background:var(--bg-dark,#060216);color:var(--text-main,#fff);padding:calc(10px + env(safe-area-inset-top,0px)) 12px calc(16px + env(safe-area-inset-bottom,0px))}
+#kkOv.open{display:block}
+#kkOv .kk-app{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+#kkOv .kk-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#kkOv .kk-top h1{font-size:1.05rem;font-weight:900}
+#kkOv .kk-x{width:34px;height:34px;border-radius:50%;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:var(--card-bg,#1a0f3c);color:inherit;font-size:1rem;cursor:pointer}
+#kkOv .kk-pill{padding:5px 12px;border-radius:20px;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:var(--card-bg,#1a0f3c);font-size:.7rem;font-weight:800;color:var(--text-muted,#a99fcb)}
+#kkOv .kk-pill b{color:var(--accent-gold,#ffc933)}
+#kkOv .kk-card2{padding:14px;border-radius:20px;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:var(--card-bg,#1a0f3c)}
+#kkOv .kk-card2 h3{font-size:.88rem;font-weight:900;margin-bottom:10px}
+#kkOv .kk-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#kkOv .kk-chip{padding:10px 4px;border-radius:12px;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:rgba(255,255,255,.05);color:inherit;font-weight:900;font-size:.8rem;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.3)}
+#kkOv .kk-chip.on{background:linear-gradient(135deg,#c26bff,#6d5bff);color:#fff;border-color:#c26bff}
+#kkOv .kk-btn{width:100%;padding:13px;border-radius:14px;border:none;font-weight:900;font-size:.88rem;color:#fff;cursor:pointer;background:linear-gradient(135deg,#c26bff,#6d5bff);box-shadow:0 4px 0 #3b1d8f;margin-top:10px}
+#kkOv .kk-btn.alt{background:rgba(255,255,255,.08);color:inherit;border:1px solid var(--border-glow,rgba(180,92,255,.4));box-shadow:0 3px 0 rgba(0,0,0,.3)}
+#kkOv .kk-btn.red{background:linear-gradient(135deg,#ff2d95,#c2185b);box-shadow:0 4px 0 #7a0f3a}
+#kkOv .kk-btn.sm{width:auto;padding:9px 16px;margin:0;font-size:.8rem}
+#kkOv .kk-btn:disabled{opacity:.45}
+#kkOv .kk-btn:active{transform:translateY(3px)}
+#kkOv .kk-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:.8rem;font-weight:800}
+#kkOv .kk-row:last-child{border:none}
+#kkOv .kk-note{font-size:.7rem;line-height:1.9;color:var(--text-muted,#a99fcb);font-weight:700;margin-top:8px}
+#kkOv .kk-pl{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:14px;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:var(--card-bg,#1a0f3c);font-weight:800;font-size:.82rem}
+#kkOv .kk-pl.turn{border-color:#2ee6a6;box-shadow:0 0 0 2px rgba(46,230,166,.25)}
+#kkOv .kk-brow{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;min-height:30px;direction:ltr}
+#kkOv .kk-table{min-height:150px;border-radius:20px;border:2px solid var(--border-glow,rgba(180,92,255,.4));background:radial-gradient(ellipse at center,#0f3b2e,#0a2a21);padding:14px 8px;display:flex;align-items:center;justify-content:center;gap:22px;box-shadow:inset 0 0 40px rgba(0,0,0,.5);direction:ltr}
+#kkOv .kk-pile{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-size:.7rem;font-weight:800}
+#kkOv .kk-pile:disabled{opacity:.5;cursor:default}
+#kkOv .kk-pile.ok .kk-card{outline:2px solid #2ee6a6;outline-offset:2px}
+#kkOv .kk-card{width:44px;height:64px;border-radius:7px;background:#fff;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;line-height:1.15;border:1px solid #cdbff0;box-shadow:0 3px 0 #9d86d6,0 6px 10px rgba(0,0,0,.45);direction:ltr;flex-shrink:0}
+#kkOv .kk-card.r{color:#d81b60}
+#kkOv .kk-card.b{background:linear-gradient(135deg,#7c3aed,#4b1fa8);border-color:rgba(255,255,255,.35);box-shadow:0 3px 0 #2b1064}
+#kkOv .kk-card.s{width:18px;height:28px}
+#kkOv .kk-card.e{background:transparent;border:2px dashed rgba(255,255,255,.3);box-shadow:none}
+#kkOv .kk-hand{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;direction:ltr;padding:6px 0}
+#kkOv .kk-hand button{background:none;border:none;cursor:pointer;padding:2px;border-radius:9px;transition:transform .15s}
+#kkOv .kk-hand button.sel{transform:translateY(-12px)}
+#kkOv .kk-hand button.win .kk-card{outline:2px solid #2ee6a6;outline-offset:2px}
+#kkOv .kk-acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;min-height:40px;align-items:center}
+#kkOv .kk-msg{text-align:center;font-size:.8rem;font-weight:800;color:var(--text-muted,#a99fcb);min-height:20px;line-height:1.8}
+#kkOv .kk-end{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.78);padding:20px;z-index:3}
+#kkOv .kk-box{width:100%;max-width:340px;text-align:center;padding:22px 18px;border-radius:22px;border:1px solid var(--border-glow,rgba(180,92,255,.4));background:var(--card-bg,#1a0f3c)}
+#kkOv .kk-box h2{font-size:1.4rem;margin-bottom:8px}
+#kkOv .kk-box p{color:var(--text-muted,#a99fcb);font-size:.85rem;line-height:1.9;font-weight:700}
+</style>
+
+<script>
+/* ===== کۆنکەن: یاری لەناو سایتەکە (ڕکابەری ڕاستەقینە + گرەو، یان ئەزموون دژی کۆمپیوتەر) ===== */
+(function () {
+    if (document.getElementById('kkOv')) return;
+    var FEE = 10;                                   // کۆمیسیۆنی پلاتفۆرم (%) — لێرە بیگۆڕە
+    var CHIPS = [1000, 5000, 10000, 25000, 50000], WAIT_MS = 180000;
+    var SYM = ['♠', '♥', '♦', '♣'], RK = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    var fb = window.firebase, auth = (fb && fb.apps && fb.apps.length) ? fb.auth() : null, db = auth ? fb.database() : null;
+
+    function rk(c) { return c % 13; } function su(c) { return Math.floor(c / 13); }
+    function H(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x !== undefined) e.textContent = x; return e; }
+    function m2(n) { return Number(n).toLocaleString('en-US'); }
+    function toast(t) { (window.sxToast || window.alert)(t); }
+
+    /* ---------- یاسای یاری ---------- */
+    function without(a, r) { var o = a.slice(); r.forEach(function (x) { var i = o.indexOf(x); if (i > -1) o.splice(i, 1); }); return o; }
+    function canMeld(h) {
+        if (!h.length) return true; if (h.length < 3) return false;
+        h = h.slice().sort(function (x, y) { return rk(x) - rk(y) || su(x) - su(y); });
+        var c = h[0], rest = h.slice(1), i, j, k, r, same = rest.filter(function (x) { return rk(x) === rk(c); });
+        for (i = 0; i < same.length; i++) for (j = i + 1; j < same.length; j++) {
+            if (canMeld(without(rest, [same[i], same[j]]))) return true;
+            for (k = j + 1; k < same.length; k++) if (canMeld(without(rest, [same[i], same[j], same[k]]))) return true;
+        }
+        var cur = [];
+        for (r = rk(c) + 1; r < 13; r++) {
+            var nx = rest.find(function (x) { return su(x) === su(c) && rk(x) === r; });
+            if (nx === undefined) break; cur.push(nx);
+            if (cur.length >= 2 && canMeld(without(rest, cur))) return true;
+        }
+        return false;
+    }
+    function canWin(h, c) { return h.length === 11 && canMeld(without(h, [c])); }
+    function score(c, h) { var s = 0; h.forEach(function (x) { if (x === c) return; if (rk(x) === rk(c)) s++; else if (su(x) === su(c) && Math.abs(rk(x) - rk(c)) <= 2) s++; }); return s; }
+    function deal() {
+        var d = [], i; for (i = 0; i < 52; i++) d.push(i);
+        var a = new Uint32Array(52); crypto.getRandomValues(a);
+        for (i = 51; i > 0; i--) { var j = a[i] % (i + 1), t = d[i]; d[i] = d[j]; d[j] = t; }
+        return { h: { a: d.splice(0, 10), b: d.splice(0, 10) }, disc: [d.pop()], stock: d, turn: 'a', phase: 'draw', lastTaken: -1, t: Date.now() };
+    }
+    function norm(S) { S.stock = S.stock || []; S.disc = S.disc || []; S.h = S.h || {}; S.h.a = S.h.a || []; S.h.b = S.h.b || []; return S; }
+    function doDraw(S, w, src) { var c = src === 'disc' ? S.disc.pop() : S.stock.pop(); S.h[w].push(c); S.phase = 'discard'; S.lastTaken = src === 'disc' ? c : -1; S.t = Date.now(); }
+    function doDiscard(S, w, c) { S.h[w].splice(S.h[w].indexOf(c), 1); S.disc.push(c); S.turn = w === 'a' ? 'b' : 'a'; S.phase = 'draw'; S.lastTaken = -1; S.t = Date.now(); if (!S.stock.length) { S.winner = 'draw'; S.phase = 'done'; } }
+    function doWin(S, w, c) { S.h[w].splice(S.h[w].indexOf(c), 1); S.winner = w; S.phase = 'done'; S.t = Date.now(); }
+    function botTurn(S) {
+        var h = S.h.b, top = S.disc[S.disc.length - 1], src = 'stock';
+        if (top !== undefined) { var t = h.concat([top]); if (t.some(function (x) { return x !== top && canWin(t, x); }) || score(top, h) >= 2) src = 'disc'; }
+        if (src === 'stock' && !S.stock.length) src = 'disc';
+        if (src === 'disc' && !S.disc.length) { S.winner = 'draw'; S.phase = 'done'; return; }
+        doDraw(S, 'b', src);
+        var w = S.h.b.filter(function (x) { return canWin(S.h.b, x); });
+        if (w.length) { doWin(S, 'b', w[0]); return; }
+        var best = null, bs = 99;
+        S.h.b.forEach(function (x) { if (x === S.lastTaken) return; var s = score(x, S.h.b); if (s < bs) { bs = s; best = x; } });
+        doDiscard(S, 'b', best);
+    }
+
+    /* ---------- پارە ---------- */
+    function uid() { return auth && auth.currentUser ? auth.currentUser.uid : null; }
+    function addBal(n) { return db.ref('users/' + uid() + '/balance').transaction(function (b) { return (b || 0) + n; }); }
+    async function lock(n) { var t = await db.ref('users/' + uid() + '/balance').transaction(function (b) { return (b || 0) >= n ? b - n : undefined; }); return t.committed; }
+    var busy = {};
+    async function settle(gid, r) {
+        if (!uid() || !r || !r.s || !r.s.winner || busy[gid]) return;
+        var me = (r.a && r.a.uid === uid()) ? 'a' : ((r.b && r.b.uid === uid()) ? 'b' : null); if (!me) return;
+        var w = r.s.winner, pot = r.stake * 2, prize = pot - Math.floor(pot * FEE / 100);
+        busy[gid] = 1;
+        try {
+            if (w === 'draw') {
+                var t = await db.ref('kk/' + gid + '/refund/' + uid()).transaction(function (v) { return v ? undefined : true; });
+                if (t.committed) { try { await addBal(r.stake); toast('پارەکەت گەڕایەوە (یەکسان بوو) ✅'); } catch (e) { await db.ref('kk/' + gid + '/refund/' + uid()).set(null); throw e; } }
+            } else if (w === me) {
+                var p = await db.ref('kk/' + gid + '/paid').transaction(function (v) { return v ? undefined : true; });
+                if (p.committed) { try { await addBal(prize); toast('🏆 ' + m2(prize) + ' دینار چووە سەر هەژمارەکەت'); } catch (e) { await db.ref('kk/' + gid + '/paid').set(null); throw e; } }
+            }
+        } catch (e) { toast('نەتوانرا پارەکە بگوازرێتەوە. دووبارە ئەم پەڕەیە بکەرەوە'); }
+        setTimeout(function () { delete busy[gid]; }, 4000);
+    }
+
+    /* ---------- ڕووکار ---------- */
+    var ov = H('div'); ov.id = 'kkOv'; document.body.appendChild(ov);
+    var K = { mode: null, gid: null, me: 'a', S: null, room: null, sel: null, sort: 'suit', stake: 5000, rooms: [] }, tmr = null;
+    function closeAll() { stopRoom(); stopRooms(); ov.classList.remove('open'); document.body.style.overflow = ''; K.mode = null; }
+    function openUi() { ov.classList.add('open'); document.body.style.overflow = 'hidden'; ov.scrollTop = 0; }
+    function top(w, sub) {
+        var t = H('div', 'kk-top'), x = H('button', 'kk-x', '✕'); x.type = 'button'; x.addEventListener('click', closeAll);
+        t.appendChild(x); t.appendChild(H('h1', '', '🃏 کۆنکەن')); t.appendChild(sub || H('span')); w.appendChild(t);
+    }
+    function cardEl(c, cls) { var d = H('div', 'kk-card' + ((su(c) === 1 || su(c) === 2) ? ' r' : '') + (cls ? ' ' + cls : '')); d.appendChild(H('span', '', RK[rk(c)])); d.appendChild(H('span', '', SYM[su(c)])); return d; }
+    function back(cls) { return H('div', 'kk-card b' + (cls ? ' ' + cls : '')); }
+
+    function stopRoom() { if (K.ref && K.cb) K.ref.off('value', K.cb); K.ref = K.cb = null; clearInterval(tmr); }
+    function stopRooms() { if (K.rr && K.rrcb) K.rr.off('value', K.rrcb); K.rr = K.rrcb = null; }
+
+    function lobby() {
+        stopRoom(); K.mode = null; K.S = null; ov.textContent = '';
+        var w = H('div', 'kk-app'); top(w);
+        var c1 = H('div', 'kk-card2'); c1.appendChild(H('h3', '', '💰 بڕی گرەو (هەر یاریکەرێک)'));
+        var ch = H('div', 'kk-chips');
+        CHIPS.forEach(function (v) { var b = H('button', 'kk-chip' + (v === K.stake ? ' on' : ''), m2(v)); b.type = 'button'; b.addEventListener('click', function () { K.stake = v; lobby(); }); ch.appendChild(b); });
+        c1.appendChild(ch);
+        var pot = K.stake * 2, prize = pot - Math.floor(pot * FEE / 100);
+        c1.appendChild(H('div', 'kk-note', 'براوە وەردەگرێت: ' + m2(prize) + ' دینار (کۆمیسیۆنی پلاتفۆرم ' + FEE + '%). کاتێک ڕکابەر دێت، ' + m2(K.stake) + ' دینار لە باڵانسی هەردووکتان قفڵ دەکرێت تا یارییەکە تەواو دەبێت.'));
+        var f = H('button', 'kk-btn', '🃏 دۆزینەوەی ڕکابەر و گرەوکردن'); f.type = 'button'; f.addEventListener('click', function () { find(K.stake); }); c1.appendChild(f);
+        var p = H('button', 'kk-btn alt', '🎮 یاری ئەزموون دژی کۆمپیوتەر (بێ پارە)'); p.type = 'button'; p.addEventListener('click', practice); c1.appendChild(p);
+        w.appendChild(c1);
+        var c2 = H('div', 'kk-card2'); c2.appendChild(H('h3', '', 'ژووری کراوە')); var lst = H('div'); lst.id = 'kkRooms'; c2.appendChild(lst);
+        c2.appendChild(H('div', 'kk-note', 'هەر یاریکەرێک ١٠ کارتی هەیە. لە کۆگا یان لە سەری کارتە فڕێدراوەکان کارتێک بکێشە، پاشان یەکێک بفڕێنە. کارتەکانت بکە بە گرووپی (٣ یان ٤ کارتی هاوژمارە) یان زنجیرە (٣ کارت یان زیاتر لە یەک ڕەنگ بەدوای یەک). یەکەم کەس هەموو ١٠ کارتەکەی گرووپ کرد و «کۆنکەن» ی کرد دەبات.'));
+        w.appendChild(c2); ov.appendChild(w); drawRooms();
+        if (db && uid()) watchRooms();
+    }
+    function watchRooms() {
+        stopRooms(); K.rr = db.ref('kk').limitToLast(40);
+        K.rrcb = function (s) {
+            var l = []; s.forEach(function (c) { var v = c.val(); if (v && v.stake) l.push({ id: c.key, r: v }); });
+            K.rooms = l.reverse(); l.forEach(function (x) { settle(x.id, x.r); }); drawRooms();
+        };
+        K.rr.on('value', K.rrcb, function () { var b = document.getElementById('kkRooms'); if (b) b.textContent = 'نەتوانرا ژوورەکان بخوێنرێنەوە (ڕێگەپێدانی Firebase)'; });
+    }
+    function drawRooms() {
+        var b = document.getElementById('kkRooms'); if (!b) return; b.textContent = '';
+        var me = uid(), n = 0;
+        K.rooms.forEach(function (x) {
+            var r = x.r, mine = me && ((r.a && r.a.uid === me) || (r.b && r.b.uid === me));
+            var live = r.status === 'playing' && !(r.s && r.s.winner);
+            var open = r.status === 'open' || r.status === 'joining';
+            if (!((open && r.status === 'open') || (mine && (open || live)))) return;
+            n++; var row = H('div', 'kk-row'), i = H('div');
+            i.appendChild(H('div', '', m2(r.stake) + ' دینار · @' + (r.a ? r.a.name : '')));
+            var st = r.status === 'open' ? (mine ? 'ژوورەکەمە، چاوەڕێی ڕکابەر' : 'کراوەیە') : (live ? 'یاری دەکرێت' : 'چاوەڕێ');
+            var sm = H('small', '', st); sm.style.color = 'var(--text-muted,#a99fcb)'; i.appendChild(sm); row.appendChild(i);
+            var bt = H('button', 'kk-btn sm', mine ? 'کردنەوە' : 'بەشداربوون'); bt.type = 'button';
+            bt.addEventListener('click', function () { if (mine) watchRoom(x.id, r.a.uid === me ? 'a' : 'b'); else join(x.id); });
+            row.appendChild(bt); b.appendChild(row);
+        });
+        if (!n) b.appendChild(H('div', 'kk-note', 'هیچ ژوورێکی کراوە نییە.'));
+    }
+
+    /* ---------- ڕکابەر دۆزینەوە ---------- */
+    async function find(stake) {
+        if (!db || !uid()) { toast('پێویستە بچیتە ژوورەوە و ئینتەرنێتت هەبێت'); return; }
+        if (K.busy) return; K.busy = 1;
+        try {
+            var s = await db.ref('kk').limitToLast(40).once('value'), cand = null, mine = null;
+            s.forEach(function (c) {
+                var v = c.val(); if (!v || v.status !== 'open' || v.stake !== stake) return;
+                if (v.a.uid === uid()) mine = c.key; else if (!cand) cand = c.key;
+            });
+            if (mine) { watchRoom(mine, 'a'); }
+            else if (cand) { await join(cand); }
+            else { await createRoom(stake); }
+        } catch (e) { toast('کێشە ڕوویدا. دووبارە هەوڵ بدە (ڕێگەپێدانی Firebase؟)'); }
+        K.busy = 0;
+    }
+    async function createRoom(stake) {
+        var cu = currentUser();
+        if (!(await lock(stake))) { toast('باڵانسەکەت بەش ناکات. سەرەتا پارە زیاد بکە'); return; }
+        var ref = db.ref('kk').push();
+        try { await ref.set({ stake: stake, status: 'open', a: { uid: uid(), name: cu.name }, t: Date.now() }); watchRoom(ref.key, 'a'); }
+        catch (e) { await addBal(stake); throw e; }
+    }
+    async function join(gid) {
+        var cu = currentUser(), me = uid();
+        var tx = await db.ref('kk/' + gid).transaction(function (r) { if (r && r.status === 'open' && !r.b && r.a.uid !== me) { r.status = 'joining'; r.b = { uid: me, name: cu.name }; return r; } });
+        if (!tx.committed) { toast('ئەم ژوورە پڕ بووە یان نەماوە'); return; }
+        var stake = tx.snapshot.val().stake;
+        if (!(await lock(stake))) { await db.ref('kk/' + gid).update({ status: 'open', b: null }); toast('باڵانسەکەت بەش ناکات'); return; }
+        try { await db.ref('kk/' + gid).update({ status: 'playing', s: deal() }); watchRoom(gid, 'b'); }
+        catch (e) { await addBal(stake); await db.ref('kk/' + gid).update({ status: 'open', b: null }); throw e; }
+    }
+    function watchRoom(gid, me) {
+        stopRoom(); stopRooms(); K.mode = 'online'; K.gid = gid; K.me = me; K.S = null; K.sel = null; K.ref = db.ref('kk/' + gid);
+        K.cb = function (s) {
+            var r = s.val(); if (!r) return; K.room = r;
+            if (r.status === 'cancelled') { toast('ژوورەکە هەڵوەشێندرایەوە'); lobby(); return; }
+            if (r.s) { K.S = norm(r.s); renderGame(); settle(gid, r); } else renderWait();
+        };
+        K.ref.on('value', K.cb); openUi();
+        tmr = setInterval(function () { var b = document.getElementById('kkTimeout'); if (!b || !K.S) return; b.style.display = (K.S.turn !== K.me && !K.S.winner && Date.now() - K.S.t > WAIT_MS) ? 'inline-block' : 'none'; }, 4000);
+    }
+    function renderWait() {
+        ov.textContent = ''; var w = H('div', 'kk-app'); top(w); var c = H('div', 'kk-card2'), r = K.room || {};
+        c.appendChild(H('h3', '', r.status === 'joining' ? 'ڕکابەرێک هات...' : '⏳ چاوەڕێی ڕکابەر...'));
+        c.appendChild(H('div', 'kk-note', 'گرەو: ' + m2(r.stake || 0) + ' دینار. ' + m2(r.stake || 0) + ' دینار لە باڵانسەکەت قفڵ کراوە و ئەگەر ژوورەکە هەڵبوەشێنیتەوە دەگەڕێتەوە.'));
+        if (r.status === 'open' && r.a && r.a.uid === uid()) {
+            var b = H('button', 'kk-btn red', 'هەڵوەشاندنەوەی ژوور و گەڕاندنەوەی پارە'); b.type = 'button';
+            b.addEventListener('click', async function () {
+                var t = await db.ref('kk/' + K.gid).transaction(function (x) { if (x && x.status === 'open') { x.status = 'cancelled'; return x; } });
+                if (t.committed) { try { await addBal(r.stake); toast('پارەکەت گەڕایەوە ✅'); } catch (e) { toast('کێشە ڕوویدا'); } }
+                lobby();
+            }); c.appendChild(b);
+        }
+        var l = H('button', 'kk-btn alt', 'گەڕانەوە بۆ لیست (ژوورەکە دەمێنێتەوە)'); l.type = 'button'; l.addEventListener('click', lobby); c.appendChild(l);
+        w.appendChild(c); ov.appendChild(w);
+    }
+
+    /* ---------- یاری ئەزموون ---------- */
+    function practice() { stopRoom(); stopRooms(); K.mode = 'bot'; K.me = 'a'; K.S = norm(deal()); K.sel = null; K.room = null; openUi(); renderGame(); }
+
+    /* ---------- یاریکردن ---------- */
+    function commit() {
+        K.sel = null;
+        if (K.mode === 'bot') {
+            renderGame();
+            if (!K.S.winner && K.S.turn === 'b') setTimeout(function () { if (K.mode !== 'bot' || K.S.winner) return; botTurn(K.S); renderGame(); }, 900);
+        } else { renderGame(); db.ref('kk/' + K.gid).update({ s: K.S, status: K.S.winner ? 'done' : 'playing' }).catch(function () { toast('کێشە لە ناردنی ھەنگاوەکە'); }); }
+    }
+    function mine() { return K.S && K.S.turn === K.me && !K.S.winner; }
+    function renderGame() {
+        var S = K.S; if (!S) return; var me = K.me, opp = me === 'a' ? 'b' : 'a', hand = S.h[me], ohand = S.h[opp];
+        ov.textContent = ''; var w = H('div', 'kk-app'), online = K.mode === 'online', r = K.room || {};
+        var pill = H('span', 'kk-pill');
+        if (online) { var pot = (r.stake || 0) * 2; pill.appendChild(document.createTextNode('گرەو ')); pill.appendChild(H('b', '', m2(r.stake || 0))); pill.appendChild(document.createTextNode(' | براوە ')); pill.appendChild(H('b', '', m2(pot - Math.floor(pot * FEE / 100)))); }
+        else pill.textContent = 'ئەزموون (بێ پارە)';
+        top(w, pill);
+        var oname = online ? ((r[opp] && r[opp].name) || 'ڕکابەر') : 'کۆمپیوتەر';
+        var pb = H('div', 'kk-pl' + (S.turn === opp && !S.winner ? ' turn' : '')); pb.appendChild(H('span', '', oname)); pb.appendChild(H('small', '', ohand.length + ' کارت')); w.appendChild(pb);
+        var br = H('div', 'kk-brow'); ohand.forEach(function () { br.appendChild(back('s')); }); w.appendChild(br);
+
+        var canDraw = mine() && S.phase === 'draw';
+        var tb = H('div', 'kk-table');
+        var sp = H('button', 'kk-pile' + (canDraw && S.stock.length ? ' ok' : '')); sp.type = 'button'; sp.disabled = !(canDraw && S.stock.length);
+        sp.appendChild(S.stock.length ? back() : H('div', 'kk-card e')); sp.appendChild(H('span', '', 'کۆگا (' + S.stock.length + ')'));
+        sp.addEventListener('click', function () { doDraw(S, me, 'stock'); commit(); });
+        var topc = S.disc[S.disc.length - 1];
+        var dp = H('button', 'kk-pile' + (canDraw && topc !== undefined ? ' ok' : '')); dp.type = 'button'; dp.disabled = !(canDraw && topc !== undefined);
+        dp.appendChild(topc !== undefined ? cardEl(topc) : H('div', 'kk-card e')); dp.appendChild(H('span', '', 'فڕێدراوەکان (' + S.disc.length + ')'));
+        dp.addEventListener('click', function () { doDraw(S, me, 'disc'); commit(); });
+        tb.appendChild(sp); tb.appendChild(dp); w.appendChild(tb);
+
+        var wins = (mine() && S.phase === 'discard') ? hand.filter(function (c) { return canWin(hand, c); }) : [];
+        var msg = H('div', 'kk-msg');
+        if (!S.winner) {
+            if (mine() && S.phase === 'draw') msg.textContent = 'نۆرەی تۆیە: کارتێک بکێشە (لە کۆگا یان لە فڕێدراوەکان).';
+            else if (mine()) msg.textContent = wins.length ? '✅ کارتە سەوزەکان: ئەگەر یەکێکیان بفڕێنیت دەبیەیتەوە (کۆنکەن!).' : 'کارتێک هەڵبژێرە و بیفڕێنە.';
+            else msg.textContent = 'نۆرەی ' + oname + 'ە...';
+        }
+        w.appendChild(msg);
+
+        var ac = H('div', 'kk-acts');
+        function btn(t, cls, fn, dis) { var b = H('button', 'kk-btn sm ' + (cls || ''), t); b.type = 'button'; b.disabled = !!dis; b.addEventListener('click', fn); ac.appendChild(b); return b; }
+        if (mine() && S.phase === 'discard' && K.sel !== null) {
+            btn('فڕێدان', '', function () { doDiscard(S, me, K.sel); commit(); }, K.sel === S.lastTaken);
+            if (canWin(hand, K.sel)) btn('کۆنکەن! 🏆', '', function () { doWin(S, me, K.sel); commit(); });
+        }
+        btn(K.sort === 'suit' ? 'ڕیزکردن: ڕەنگ' : 'ڕیزکردن: ژمارە', 'alt', function () { K.sort = K.sort === 'suit' ? 'rank' : 'suit'; renderGame(); });
+        if (!S.winner) btn('وازهێنان 🏳', 'red', function () { if (!confirm('دڵنیایت دەتەوێت وازبهێنیت؟' + (online ? ' پارەکەت دەچێتە ڕکابەر.' : ''))) return; S.winner = opp; S.phase = 'done'; S.t = Date.now(); commit(); });
+        if (online) { var to = btn('ڕکابەر وەڵام نادات: بردنەوە', '', function () { S.winner = me; S.phase = 'done'; S.t = Date.now(); commit(); }); to.id = 'kkTimeout'; to.style.display = (S.turn !== me && !S.winner && Date.now() - S.t > WAIT_MS) ? 'inline-block' : 'none'; }
+        w.appendChild(ac);
+
+        var hd = H('div', 'kk-hand'), sorted = hand.slice().sort(K.sort === 'suit' ? function (a, b) { return su(a) - su(b) || rk(a) - rk(b); } : function (a, b) { return rk(a) - rk(b) || su(a) - su(b); });
+        sorted.forEach(function (c) {
+            var b = H('button', (K.sel === c ? 'sel ' : '') + (wins.indexOf(c) > -1 ? 'win' : '')); b.type = 'button'; b.appendChild(cardEl(c));
+            b.addEventListener('click', function () { if (!(mine() && S.phase === 'discard')) return; K.sel = (K.sel === c) ? null : c; renderGame(); });
+            hd.appendChild(b);
+        });
+        w.appendChild(hd);
+        w.appendChild(H('div', 'kk-note', 'گرووپ: ٣ یان ٤ کارتی هاوژمارە. زنجیرە: ٣ کارت یان زیاتر لە یەک ڕەنگ بەدوای یەک (A کەمترینە). ناتوانیت ئەو کارتە بفڕێنیت کە ئێستا لە فڕێدراوەکان هەڵتگرتووە.'));
+
+        if (S.winner) {
+            var e = H('div', 'kk-end'), bx = H('div', 'kk-box'), win = S.winner === me, dr = S.winner === 'draw';
+            bx.appendChild(H('h2', '', dr ? 'یەکسان بوو' : (win ? '🏆 تۆ بردتەوە!' : 'دۆڕاویت')));
+            var pt = '';
+            if (online) { var pp = (r.stake || 0) * 2, pz = pp - Math.floor(pp * FEE / 100); pt = dr ? 'پارەکەت دەگەڕێتەوە.' : (win ? m2(pz) + ' دینار دەچێتە سەر هەژمارەکەت.' : m2(r.stake || 0) + ' دینار دۆڕاندت.'); }
+            bx.appendChild(H('p', '', pt || (dr ? 'کۆگا تەواو بوو.' : (win ? 'ئافەرین!' : 'جارێکی تر هەوڵ بدە.'))));
+            var a1 = H('button', 'kk-btn', online ? 'گەڕانەوە بۆ لیست' : 'یاری دووبارە'); a1.type = 'button'; a1.addEventListener('click', function () { online ? lobby() : practice(); });
+            bx.appendChild(a1);
+            if (!online) { var a2 = H('button', 'kk-btn alt', 'گەڕانەوە بۆ لیست'); a2.type = 'button'; a2.addEventListener('click', lobby); bx.appendChild(a2); }
+            e.appendChild(bx); w.appendChild(e);
+        }
+        ov.appendChild(w);
+    }
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ov.classList.contains('open')) closeAll(); });
+
+    /* ---------- بەستنەوە بە شاشەی گرەوی کۆنکەن ---------- */
+    function patch() {
+        var lb = document.getElementById('lbOv'); if (!lb || !lb.classList.contains('open')) return;
+        var w = lb.querySelector('.lb'); if (!w || w.__kk) return;
+        var h = w.querySelector('.lb-hero h2'); if (!h || h.textContent !== 'کۆنکەن') return;
+        w.__kk = 1;
+        var go = w.querySelector('.lb-go:not(.alt)'); if (!go) return;
+        var g2 = go.cloneNode(true); go.replaceWith(g2); g2.textContent = '🃏 دۆزینەوەی ڕکابەر و یاری کۆنکەن';
+        function stake() { var inp = w.querySelector('.lb-in'), v = inp ? Math.floor(Number(inp.value)) : 0, on = w.querySelector('.lb-chip.on'); return v > 0 ? v : Number(on ? on.textContent.replace(/,/g, '') : 5000); }
+        g2.addEventListener('click', function () { var s = stake(); w.querySelector('.lb-x').click(); K.stake = s; openUi(); lobby(); find(s); });
+        var pr = H('button', 'lb-go alt', '🎮 یاری ئەزموون دژی کۆمپیوتەر (بێ پارە)'); pr.type = 'button';
+        pr.addEventListener('click', function () { w.querySelector('.lb-x').click(); practice(); });
+        g2.after(pr);
+        [].slice.call(w.children).forEach(function (x) { if (x.classList && x.classList.contains('lb-note')) x.remove(); });
+    }
+    var lb = document.getElementById('lbOv');
+    if (lb) new MutationObserver(patch).observe(lb, { childList: true, attributes: true, attributeFilter: ['class'] });
+})();
+</script>
