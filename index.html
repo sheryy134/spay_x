@@ -6591,73 +6591,108 @@ body.sx-light .sx-copy b{background:linear-gradient(110deg,#0f4aa8,#1f6fd1,#0f9d
 })();
 </script>
 <style>
-/* ===== لۆگۆی پەڕەی تۆمارکردن / چوونەژوورەوە ===== */
-.au-logo{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 14px;direction:ltr;filter:none!important;-webkit-text-fill-color:initial!important;background:none!important}
-.au-cw{perspective:500px;width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.au-logo .sx-cube{width:42px;height:42px}
-.au-logo .sx-f{font-size:1.05rem;border-radius:8px}
-.au-logo .sx-f.f1{transform:translateZ(21px)}
-.au-logo .sx-f.f2{transform:rotateY(180deg) translateZ(21px)}
-.au-logo .sx-f.f3{transform:rotateY(90deg) translateZ(21px)}
-.au-logo .sx-f.f4{transform:rotateY(-90deg) translateZ(21px)}
-.au-logo .sx-f.f5{transform:rotateX(90deg) translateZ(21px)}
-.au-logo .sx-f.f6{transform:rotateX(-90deg) translateZ(21px)}
-.au-t{text-align:start}
-.au-t b{display:block;font-size:1.65rem;font-weight:900;letter-spacing:2px;line-height:1.1;background:linear-gradient(110deg,#fff,#9fd0ff 50%,#3ddc97);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 0 #0e2f63)}
-.au-t small{display:block;font-size:.64rem;color:var(--text-muted);font-weight:800;margin-top:2px}
-body.sx-light .au-t b{background:linear-gradient(110deg,#0f4aa8,#1f6fd1 50%,#0f9d74);-webkit-background-clip:text;background-clip:text;filter:none}
-.auth-card span[onclick^="toggleAuth"]{display:inline-block;padding:4px 14px;border-radius:20px;border:1px solid var(--primary-glow);background:rgba(90,176,255,.12);font-weight:900;margin-inline-start:4px}
+/* ===================== ١. مۆبایل: هەموو شتێک لە ناو شاشەکە ===================== */
+html{background:#050b17}
+#appSection,#authSection{overflow-x:clip}
+.app-header{padding:6px 8px!important;gap:4px!important;max-width:100vw;overflow:hidden}
+.app-header .header-logo{font-size:.95rem!important;gap:4px!important;flex-shrink:1;min-width:0}
+.app-header .header-logo>i{font-size:.9rem}
+.app-header .lang-sw{margin-inline-start:2px}
+.app-header .lang-btn{padding:3px 5px!important;gap:3px!important}
+.app-header .lang-btn .fa-chevron-down{display:none}
+.app-header .header-right{gap:4px!important;flex-shrink:0}
+.app-header .btn-deposit-top{display:flex!important;align-items:center;justify-content:center;width:32px;height:30px;padding:0!important;font-size:.85rem!important}
+.app-header .balance-box{padding:3px 6px!important;font-size:.7rem!important;gap:3px!important}
+.app-header .notif-btn{width:30px!important;height:30px!important}
+@media (max-width:370px){.app-header .balance-box small{display:none}}
+/* دوگمەی پشتگیری: بچووک، تەنها ئایکۆن */
+.sx-nav-support{width:46px!important;height:46px!important;padding:0!important;border-radius:50%!important;justify-content:center;gap:0!important;bottom:calc(72px + env(safe-area-inset-bottom,0px))!important}
+.sx-nav-support span{display:none}
+.sx-nav-support i{font-size:1.15rem!important}
 
-/* ===== ڕیکلامی بەخێرهاتن ===== */
-#wad{position:fixed;inset:0;z-index:7500;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,16,.82);overflow-y:auto}
-#wad .wc{width:100%;max-width:360px;text-align:center;padding:22px 18px 18px;border-radius:26px;border:1px solid rgba(90,176,255,.45);background:linear-gradient(160deg,rgba(22,40,74,.98),rgba(9,17,34,.98));box-shadow:0 24px 60px rgba(0,0,0,.6);color:#fff;animation:wadPop .6s cubic-bezier(.2,1.3,.4,1)}
-@keyframes wadPop{from{opacity:0;transform:translateY(40px) rotateX(40deg) scale(.85)}to{opacity:1;transform:none}}
-#wad .wad-h{font-size:1.3rem;font-weight:900;margin:2px 0 6px}
-#wad .wad-p{font-size:.82rem;line-height:1.9;font-weight:700;color:#bcd0ee;margin-bottom:12px}
-#wad .wad-s{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;text-align:start}
-#wad .wad-r{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(90,176,255,.25);font-size:.76rem;font-weight:800}
-#wad .wad-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#3ddc97,#2aa6d8);color:#04121f;font-weight:900;font-size:.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-#wad .wad-b{width:100%;padding:14px;border-radius:16px;border:none;font-weight:900;font-size:.95rem;cursor:pointer;color:#04121f;background:linear-gradient(135deg,#3ddc97,#2aa6d8);box-shadow:0 5px 0 #17707a,0 12px 22px rgba(42,166,216,.35)}
-#wad .wad-b.alt{margin-top:10px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(90,176,255,.4);box-shadow:0 4px 0 rgba(0,0,0,.35)}
-#wad .wad-b:active{transform:translateY(3px)}
-body.sx-light #wad .wc{background:linear-gradient(160deg,#fff,#e8f2ff);color:#0f1b33}
-body.sx-light #wad .wad-p{color:#52607c}
-body.sx-light #wad .wad-r{background:#fff}
-body.sx-light #wad .wad-b.alt{color:#0f1b33}
+/* ===================== ٢. پاشبنەمای سادە و جووڵاو ===================== */
+#sxBg,#bgCanvas3D{display:none!important}
+body:not(.sx-light),body.sx-light{background:transparent!important}
+#sxAur{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(180deg,#07142a,#050b17 55%,#06161b)}
+#sxAur i{position:absolute;width:90vmax;height:90vmax;border-radius:50%;will-change:transform}
+#sxAur i:nth-child(1){left:-35vmax;top:-35vmax;opacity:.34;background:radial-gradient(circle,#3b6df0 0%,transparent 62%);animation:aurA 24s ease-in-out infinite alternate}
+#sxAur i:nth-child(2){right:-45vmax;top:15vh;opacity:.24;background:radial-gradient(circle,#3ddc97 0%,transparent 62%);animation:aurB 28s ease-in-out infinite alternate}
+#sxAur i:nth-child(3){left:-25vmax;bottom:-50vmax;opacity:.26;background:radial-gradient(circle,#7c5cff 0%,transparent 62%);animation:aurC 32s ease-in-out infinite alternate}
+@keyframes aurA{to{transform:translate3d(30vw,22vh,0) scale(1.15)}}
+@keyframes aurB{to{transform:translate3d(-28vw,-18vh,0) scale(1.2)}}
+@keyframes aurC{to{transform:translate3d(26vw,-20vh,0) scale(1.1)}}
+body.sx-light #sxAur{background:linear-gradient(180deg,#eef5ff,#e3eeff)}
+body.sx-light #sxAur i{opacity:.2!important}
+@media (prefers-reduced-motion:reduce){#sxAur i{animation:none!important}}
 
-/* ===== ڕێنمایی جزدان ===== */
-.wg-box{padding:4px 2px 2px}
+/* ===================== ٣. پەڕەی تۆمارکردن / چوونەژوورەوە ===================== */
+.auth-container{padding:14px!important;min-height:100vh;min-height:100dvh}
+.auth-card{padding:20px 16px 18px!important;border-radius:26px!important}
+.au2-hero{text-align:center;margin:2px 0 14px}
+.au2-cube{perspective:600px;width:78px;height:78px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center}
+.au2-cube .sx-cube{width:52px;height:52px}
+.au2-cube .sx-f{font-size:1.3rem;border-radius:10px}
+.au2-cube .sx-f.f1{transform:translateZ(26px)}
+.au2-cube .sx-f.f2{transform:rotateY(180deg) translateZ(26px)}
+.au2-cube .sx-f.f3{transform:rotateY(90deg) translateZ(26px)}
+.au2-cube .sx-f.f4{transform:rotateY(-90deg) translateZ(26px)}
+.au2-cube .sx-f.f5{transform:rotateX(90deg) translateZ(26px)}
+.au2-cube .sx-f.f6{transform:rotateX(-90deg) translateZ(26px)}
+.au2-title{font-size:2rem;font-weight:900;letter-spacing:3px;direction:ltr;line-height:1.1;background:linear-gradient(110deg,#fff 10%,#9fd0ff 45%,#3ddc97 85%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 0 #0e2f63) drop-shadow(0 0 16px rgba(90,176,255,.55))}
+body.sx-light .au2-title{background:linear-gradient(110deg,#0f4aa8,#1f6fd1 50%,#0f9d74);-webkit-background-clip:text;background-clip:text;filter:none}
+.au2-tag{margin-top:4px;font-size:.72rem;color:var(--text-muted);font-weight:800}
+.au2-old{display:none!important}
+.au2-welcome{margin:0 0 14px;padding:10px 12px;border-radius:14px;background:rgba(90,176,255,.1);border:1px solid var(--border-glow);font-size:.82rem;font-weight:800;line-height:1.8;text-align:center}
+.au2-sw{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border-glow);display:flex;flex-direction:column;gap:8px;align-items:center;font-size:.8rem;color:var(--text-muted);font-weight:800}
+.au2-sw button{width:100%;padding:11px;border-radius:12px;border:1px solid var(--primary-glow);background:rgba(90,176,255,.12);color:var(--text-main);font-weight:900;font-size:.9rem;cursor:pointer}
+.au2-sw button:active{transform:translateY(2px)}
+
+/* ===================== ٤. ڕیکلامی بچووک دوای دروستکردنی هەژمار ===================== */
+#wad{display:none!important}
+#sxad2{position:fixed;inset:0;z-index:7600;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,16,.72)}
+#sxad2 .ad-c{position:relative;width:100%;max-width:310px;text-align:center;padding:26px 16px 16px;border-radius:24px;border:1px solid rgba(90,176,255,.5);background:linear-gradient(160deg,#16294a,#0a1426);color:#fff;box-shadow:0 22px 50px rgba(0,0,0,.6);animation:adPop .5s cubic-bezier(.2,1.3,.4,1)}
+#sxad2 .ad-x{position:absolute;top:8px;right:8px;left:auto;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:.9rem;line-height:1;cursor:pointer}
+#sxad2 .coin3d{margin:0 auto 8px}
+#sxad2 h3{font-size:1.02rem;font-weight:900;margin-bottom:6px}
+#sxad2 p{font-size:.78rem;line-height:1.9;font-weight:700;color:#bcd0ee;margin-bottom:12px}
+#sxad2 .ad-b{width:100%;padding:12px;border:none;border-radius:14px;font-weight:900;font-size:.9rem;cursor:pointer;color:#04121f;background:linear-gradient(135deg,#3ddc97,#2aa6d8);box-shadow:0 4px 0 #17707a,0 10px 20px rgba(42,166,216,.35)}
+#sxad2 .ad-b:active{transform:translateY(3px)}
+@keyframes adPop{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:none}}
+body.sx-light #sxad2 .ad-c{background:linear-gradient(160deg,#fff,#e8f2ff);color:#0f1b33}
+body.sx-light #sxad2 p{color:#52607c}
+body.sx-light #sxad2 .ad-x{color:#0f1b33;border-color:rgba(0,0,0,.2)}
+
+/* ===================== ٥. زیادکردنی پارە: شتی زیاتر ===================== */
+.dp-strip{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:9px 12px;margin-bottom:12px;border-radius:14px;border:1px solid var(--border-glow);background:rgba(90,176,255,.1);font-size:.74rem;font-weight:800}
+.dp-sum,.dp-note{margin-top:14px;padding:12px;border-radius:14px;border:1px dashed var(--border-glow);background:rgba(255,255,255,.03)}
+.dp-sum h5,.dp-note h5{font-size:.82rem;font-weight:900;margin-bottom:8px;color:var(--primary-glow)}
+.dp-row{display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:.76rem;font-weight:800;border-bottom:1px dashed rgba(255,255,255,.1)}
+.dp-row:last-child{border:none}
+.dp-row span:last-child{color:var(--accent-gold);direction:ltr;text-align:end}
+.dp-note ul{list-style:none;display:grid;gap:6px}
+.dp-note li{font-size:.74rem;line-height:1.8;font-weight:700;color:var(--text-muted)}
+.dp-note li::before{content:'• ';color:var(--accent-gold)}
 .wg-r{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;margin-bottom:7px;border-radius:12px;border:1px solid var(--border-glow);background:rgba(255,255,255,.04)}
 .wg-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#4da3ff,#3b6df0);color:#fff;font-size:.72rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .wg-t{font-size:.78rem;font-weight:700;line-height:1.9;color:var(--text-main)}
-.wg-w{padding:9px 10px;border-radius:12px;border:1px solid var(--accent-gold);color:var(--accent-gold);font-size:.74rem;font-weight:800;line-height:1.8}
-body.sx-light .wg-r{background:#fff}
+body.sx-light .dp-sum,body.sx-light .dp-note,body.sx-light .wg-r{background:#fff}
 
-/* ===== پرۆفایل ===== */
-.pf-hero{text-align:center;padding:20px 14px;border-radius:24px;border:1px solid var(--border-glow);background:linear-gradient(160deg,rgba(77,163,255,.18),rgba(61,220,151,.1) 60%,rgba(9,17,34,.9));box-shadow:0 18px 44px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12);margin-bottom:12px;position:relative}
-body.sx-light .pf-hero{background:linear-gradient(160deg,#e3f0ff,#e6fbf3 60%,#fff);box-shadow:0 14px 30px rgba(30,70,140,.15)}
-.pf-av{position:relative;width:92px;height:92px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:900;color:#fff;background:linear-gradient(135deg,#4da3ff,#3ddc97);box-shadow:0 8px 0 #1f3f9a,0 16px 30px rgba(77,163,255,.4);animation:pfFloat 3.2s ease-in-out infinite alternate}
-.pf-av::before{content:'';position:absolute;inset:-9px;border-radius:50%;border:2px dashed rgba(90,176,255,.6);animation:pfSpin 12s linear infinite}
-@keyframes pfFloat{from{transform:translateY(2px)}to{transform:translateY(-5px)}}
-@keyframes pfSpin{to{transform:rotate(360deg)}}
-.pf-name{font-size:1.2rem;font-weight:900}
-.pf-st{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:3px 12px;border-radius:20px;background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.5);color:var(--accent-green);font-size:.72rem;font-weight:900}
-.pf-since{margin-top:8px;font-size:.72rem;color:var(--text-muted);font-weight:700}
-.pf-bal{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;margin-bottom:12px;border-radius:20px;border:1px solid var(--accent-gold);background:linear-gradient(135deg,rgba(255,203,92,.16),rgba(77,163,255,.12));box-shadow:0 6px 0 rgba(0,0,0,.25)}
-.pf-bal small{display:block;font-size:.7rem;color:var(--text-muted);font-weight:800}
-.pf-bal b{font-size:1.5rem;font-weight:900;color:var(--accent-gold)}
-.pf-bal span{font-size:.72rem;font-weight:800;margin-inline-start:4px}
-.pf-btns{display:flex;flex-direction:column;gap:6px}
-.pf-b{padding:8px 14px;border-radius:12px;border:none;font-weight:900;font-size:.76rem;cursor:pointer;color:#04121f;background:linear-gradient(135deg,#3ddc97,#2aa6d8);box-shadow:0 3px 0 #17707a}
-.pf-b.alt{background:rgba(255,255,255,.08);color:var(--text-main);border:1px solid var(--border-glow);box-shadow:0 3px 0 rgba(0,0,0,.3)}
-.pf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
-.pf-t{padding:13px 8px;text-align:center;border-radius:16px;border:1px solid var(--border-glow);background:rgba(255,255,255,.04);box-shadow:0 5px 0 rgba(0,0,0,.28)}
-.pf-t b{display:block;font-size:1.05rem;color:var(--primary-glow);margin-bottom:3px}
-.pf-t span{font-size:.68rem;color:var(--text-muted);font-weight:800}
-body.sx-light .pf-t,body.sx-light .pf-b.alt{background:#fff}
-.pf-h{font-size:.9rem;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.pf-h i{color:var(--primary-glow)}
-@media (prefers-reduced-motion:reduce){.pf-av,.pf-av::before,#wad .wc{animation:none!important}}
+/* ===================== ٦. پەڕەی گرەو: جوانتر و ئاسانتر ===================== */
+.ch-hero{position:relative;overflow:hidden;margin-bottom:12px;padding:16px 14px;border-radius:22px;border:1px solid var(--border-glow);background:linear-gradient(135deg,rgba(61,220,151,.16),rgba(59,109,240,.26));box-shadow:0 12px 28px rgba(0,0,0,.4)}
+.ch-hero h2{font-size:1.05rem;font-weight:900}
+.ch-hero p{margin:4px 0 10px;font-size:.76rem;font-weight:700;color:var(--text-muted);line-height:1.8}
+.ch-hs{display:flex;gap:8px}
+.ch-hs div{flex:1;padding:8px 6px;text-align:center;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.ch-hs b{display:block;font-size:1rem;color:var(--accent-gold)}
+.ch-hs span{font-size:.64rem;font-weight:800;color:var(--text-muted)}
+#pageChallenge .ch-card{border-radius:18px!important;border-inline-start:4px solid var(--primary-glow)!important;transition:transform .15s}
+#pageChallenge .ch-card:active{transform:scale(.98)}
+#pageChallenge .wallet-tab{border-radius:14px}
+body.sx-light .ch-hs div{background:#fff}
+
+/* ===================== ٧. پانێڵی ئەدمین ===================== */
+.ad-tot{margin-bottom:10px}
+#adFin{margin-bottom:12px}
 </style>
 
 <script>
@@ -6665,36 +6700,75 @@ body.sx-light .pf-t,body.sx-light .pf-b.alt{background:#fff}
     var $ = function (i) { return document.getElementById(i); };
     function H(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x !== undefined) e.textContent = x; return e; }
     function toast(m) { (window.sxToast || window.alert)(m); }
+    function num(n) { return Number(n || 0).toLocaleString('en-US'); }
     var fb = window.firebase, db = (fb && fb.apps && fb.apps.length) ? fb.database() : null, auth = db ? fb.auth() : null;
-
     var CUBE = '<div class="sx-f f1">S</div><div class="sx-f f2">X</div><div class="sx-f f3"><i class="fa-solid fa-bolt"></i></div><div class="sx-f f4"><i class="fa-solid fa-gamepad"></i></div><div class="sx-f f5"><i class="fa-solid fa-trophy"></i></div><div class="sx-f f6"><i class="fa-solid fa-coins"></i></div>';
-    function logo(cls) {
-        var l = H('div', cls || 'au-logo'), cw = H('div', 'au-cw'), c = H('div', 'sx-cube'); c.innerHTML = CUBE; cw.appendChild(c);
-        var t = H('div', 'au-t'); t.appendChild(H('b', '', 'SPAY X')); t.appendChild(H('small', '', 'شوێنی یاری و پێشبڕکێ'));
-        l.appendChild(cw); l.appendChild(t); return l;
+
+    /* ================= ١. مۆبایل + لابردنی شاشەی سەرەتا + پاشبنەما ================= */
+    var vp = document.querySelector('meta[name="viewport"]');
+    if (vp) vp.setAttribute('content', 'width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover');
+
+    var spl = $('spl'); if (spl) spl.remove();
+    try { sessionStorage.setItem('sxSpl', '1'); } catch (e) {}
+    document.body.style.overflow = '';
+
+    // وەستاندنی جووڵەی کانڤاسی کۆن (CPU کەم دەکاتەوە)
+    var _raf = window.requestAnimationFrame.bind(window);
+    window.requestAnimationFrame = function (cb) { return cb === window.animateCanvas ? 0 : _raf(cb); };
+
+    if (!$('sxAur')) {
+        var aur = H('div'); aur.id = 'sxAur';
+        for (var i = 0; i < 3; i++) aur.appendChild(H('i'));
+        document.body.insertBefore(aur, document.body.firstChild);
     }
 
-    /* ================= ١. لۆگۆی پەڕەی تۆمارکردن و چوونەژوورەوە ================= */
-    var bl = document.querySelector('.auth-card .brand-logo-3d');
-    if (bl) bl.replaceWith(logo());
+    // دوگمەی زیادکردنی پارە لە سەرەوە: تەنها «+» (شوێن کەم دەگرێت)
+    var dtb = document.querySelector('.btn-deposit-top');
+    if (dtb) {
+        dtb.textContent = ''; dtb.appendChild(H('i', 'fa-solid fa-plus'));
+        dtb.setAttribute('aria-label', 'زیادکردنی پارە');
+        dtb.onclick = function () { switchPage('wallet'); switchWalletMode('deposit'); };
+    }
 
-    /* ================= ٢. دوای تۆمارکردن: بچۆ بۆ سەرەکی + ڕیکلامی بەخێرهاتن ================= */
-    function welcomeAd() {
-        if ($('wad')) return;
-        var o = H('div'); o.id = 'wad'; var c = H('div', 'wc');
-        c.appendChild(logo());
-        c.appendChild(H('div', 'wad-h', 'بەخێربێیت! 🎉'));
-        c.appendChild(H('div', 'wad-p', 'هەژمارەکەت دروست کرا. باڵانسەکەت ٠ دینارە، بۆ ئەوەی بتوانیت گرەو بکەیت و یاری بکەیت سەرەتا پارە زیاد بکە.'));
-        var s = H('div', 'wad-s');
-        ['شێوازی پارەدان هەڵبژێرە (FIB یان فاستپەی)', 'پارەکە بنێرە و وێنەی ڕەسیدەکە دابنێ', 'دوای پشکنینی ئەدمین، باڵانسەکەت زیاد دەبێت'].forEach(function (t, i) {
-            var r = H('div', 'wad-r'); r.appendChild(H('span', 'wad-n', String(i + 1))); r.appendChild(H('span', '', t)); s.appendChild(r);
-        });
-        c.appendChild(s);
+    /* ================= ٢. پەڕەی تۆمارکردن و چوونەژوورەوە ================= */
+    var ac = document.querySelector('.auth-card');
+    if (ac && !ac.querySelector('.au2-hero')) {
+        var hero = H('div', 'au2-hero'), cw = H('div', 'au2-cube'), cube = H('div', 'sx-cube');
+        cube.innerHTML = CUBE; cw.appendChild(cube);
+        hero.appendChild(cw); hero.appendChild(H('div', 'au2-title', 'SPAY X')); hero.appendChild(H('div', 'au2-tag', 'شوێنی یاری و پێشبڕکێ'));
+        var oldLogo = ac.querySelector('.au-logo, .brand-logo-3d');
+        if (oldLogo) oldLogo.replaceWith(hero); else ac.insertBefore(hero, ac.children[1] || null);
+
+        var decorate = function (boxId, welcome, swText, swBtn, mode) {
+            var box = $(boxId); if (!box) return;
+            var ps = box.querySelectorAll(':scope > p');
+            if (ps[0]) ps[0].classList.add('au2-old');
+            if (ps.length > 1) ps[ps.length - 1].classList.add('au2-old');
+            box.insertBefore(H('div', 'au2-welcome', welcome), box.firstChild);
+            var sw = H('div', 'au2-sw'); sw.appendChild(H('span', '', swText));
+            var b = H('button', '', swBtn); b.type = 'button';
+            b.addEventListener('click', function () { toggleAuth(mode); window.scrollTo(0, 0); });
+            sw.appendChild(b); box.appendChild(sw);
+        };
+        decorate('registerBox', 'بەخێربێیت بۆ SPAY X 👋 هەژمارێکی نوێ دروست بکە و دەست بە یاری بکە.', 'هەژمارت هەیە؟', 'چوونەژوورەوە', 'login');
+        decorate('loginBox', 'بەخێربێیتەوە! بچۆ ژوورەوە بۆ هەژمارەکەت.', 'هەژمارت نییە؟', 'تۆمارکردن', 'reg');
+    }
+
+    /* ================= ٣. ڕیکلامی بچووک دوای دروستکردنی هەژمار ================= */
+    function showAd() {
+        if ($('sxad2')) return;
+        var o = H('div'); o.id = 'sxad2';
+        var c = H('div', 'ad-c');
+        var x = H('button', 'ad-x', '✕'); x.type = 'button'; x.setAttribute('aria-label', 'داخستن'); c.appendChild(x);
+        var coin = H('div', 'coin3d'); coin.appendChild(H('i', 'fa-solid fa-coins')); c.appendChild(coin);
+        c.appendChild(H('h3', '', 'پارە زیاد بکە و دەست پێ بکە 💰'));
+        c.appendChild(H('p', '', 'باڵانسەکەت ٠ دینارە. بە FIB یان فاستپەی پارە زیاد بکە؛ دوای پشکنینی ئەدمین باڵانسەکەت زیاد دەبێت.'));
+        var b = H('button', 'ad-b', '💰 زیادکردنی پارە'); b.type = 'button'; c.appendChild(b);
+        o.appendChild(c); document.body.appendChild(o);
         function close() { o.remove(); }
-        var b = H('button', 'wad-b', '💰 زیادکردنی پارە'); b.type = 'button';
+        x.addEventListener('click', close);
+        o.addEventListener('click', function (e) { if (e.target === o) close(); });
         b.addEventListener('click', function () { close(); switchPage('wallet'); switchWalletMode('deposit'); });
-        var a = H('button', 'wad-b alt', 'دواتر'); a.type = 'button'; a.addEventListener('click', close);
-        c.appendChild(b); c.appendChild(a); o.appendChild(c); document.body.appendChild(o);
     }
     var _hr = window.handleRegister;
     window.handleRegister = async function () {
@@ -6702,774 +6776,263 @@ body.sx-light .pf-t,body.sx-light .pf-b.alt{background:#fff}
         await _hr.apply(this, arguments);
         if (!had && currentUser()) {
             var w = $('depWelcome'); if (w) w.style.display = 'none';
-            switchPage('home'); welcomeAd();
+            switchPage('home'); showAd();
         }
     };
 
-    /* ================= ٣. ڕێنمایی لە جزدان ================= */
-    function guide(title, steps, warn) {
-        var w = H('div', 'gv-help'), b = H('button', 'gv-hbtn'); b.type = 'button';
-        var l = H('span', 'l'); l.appendChild(H('i', 'fa-solid fa-book-open')); l.appendChild(H('span', '', title));
-        b.appendChild(l); b.appendChild(H('i', 'fa-solid fa-chevron-down'));
-        b.addEventListener('click', function () { w.classList.toggle('open'); });
-        var p = H('div', 'gv-hp'), box = H('div', 'wg-box');
-        steps.forEach(function (s, i) { var r = H('div', 'wg-r'); r.appendChild(H('span', 'wg-n', String(i + 1))); r.appendChild(H('div', 'wg-t', s)); box.appendChild(r); });
-        if (warn) box.appendChild(H('div', 'wg-w', '⚠ ' + warn));
-        p.appendChild(box); w.appendChild(b); w.appendChild(p); return w;
-    }
-    var dep = $('walletDepositBox'), wd = $('walletWithdrawBox');
-    if (dep) dep.insertBefore(guide('ڕێنمایی: چۆن پارە زیاد بکەم؟', [
-        'شێوازی پارەدان هەڵبژێرە: بانکی FIB یان فاستپەی.',
-        'لە ئەپی بانکەکەتەوە پارەکە بنێرە بۆ ئەو ژمارە هەژمارەی لە شاشەکەدا دیارە. دەتوانیت ژمارەکە لەبەر بگریتەوە (دوگمەی «لەبەرگرتنەوە»)، یان QR کۆدەکە سکان بکەیت ئەگەر هەبوو.',
-        'دوای ناردن، وێنەی ڕەسیدەکە (سکرینشۆت) بگرە.',
-        'بڕی ئەو پارەیە بنووسە کە ناردوتە (یان یەکێک لە دوگمە خێراکان بەکاربهێنە).',
-        'وێنەی ڕەسیدەکە لە بەشی «وێنەی ڕەسیدی ناردن» دابنێ.',
-        'دوگمەی «ناردنی داواکاری زیادکردنی پارە» دابگرە.',
-        'چاوەڕێی ئەدمین بە. دوای پشکنین و قبوڵکردن، باڵانسەکەت زیاد دەبێت و ئاگادارکردنەوەیەکت بۆ دێت. دۆخی داواکارییەکەت لە «داواکارییەکانم» (لە خوارەوە) دەبینیت.'
-    ], 'بڕی نووسراو دەبێت ڕێک وەک ئەو بڕە بێت کە ناردوتە، و ڕەسیدەکە دەبێت ڕاستەقینە بێت.'), dep.firstChild);
-    if (wd) wd.insertBefore(guide('ڕێنمایی: چۆن پارە ڕابکێشم؟', [
-        'شێوازی وەرگرتن هەڵبژێرە: بانکی FIB یان فاستپەی.',
-        'ژمارەی هەژماری خۆت بنووسە کە دەتەوێت پارەکەی بۆ بنێردرێت. ئەمە دەبێت ڕێک و ڕاست بێت.',
-        'بڕی پارە بنووسە (یان دوگمە خێراکان بەکاربهێنە). ناتوانیت لە باڵانسەکەت زیاتر ڕابکێشیت.',
-        'دوگمەی «ناردنی داواکاری ڕاکێشانی پارە» دابگرە.',
-        'ئەدمین داواکارییەکەت دەپشکنێت. ئەگەر قبوڵ کرا، پارەکە بۆ ژمارەکەت دەنێردرێت و لە باڵانسەکەت دەکرێتەوە. ئەگەر ڕەتکرایەوە، باڵانسەکەت وەک خۆی دەمێنێتەوە.'
-    ], 'ژمارەی هەژمارەکە دووبارە بپشکنە پێش ناردن، چونکە ناتوانرێت پارەی نێردراو بۆ ژمارەی هەڵە بگەڕێنرێتەوە.'), wd.children[1] || null);
+    /* ================= ٤. زیادکردنی پارە: زانیاری و ڕێنمایی زیاتر ================= */
+    var dep = $('walletDepositBox');
+    if (dep) {
+        var strip = H('div', 'dp-strip'); dep.insertBefore(strip, dep.firstChild);
 
-    /* ================= ٤. یارییەکان: لابردنی «پێش دەستپێکردن ئەمە بزانە» ================= */
-    document.querySelectorAll('.gv-hp .gq').forEach(function (q) {
-        var t = q.querySelector('.gq-t span');
-        if (t && t.textContent.trim().indexOf('⚠') === 0) q.remove();
-    });
-
-    /* ================= ٥. ژمارەی هەژمار و QR لە Firebase (هەموو کەس دەیبینێت) ================= */
-    var D = { fib: { acc: 'FIB-884920192', qr: '' }, fastpay: { acc: '07701234567', qr: '' } };
-    var PAY = JSON.parse(JSON.stringify(D)), cur = 'fib', offPay = null;
-    function paintQr() {
-        var box = document.querySelector('#walletDepositBox .qr-card-box'); if (!box) return;
-        var q = PAY[cur].qr; box.textContent = '';
-        if (q && q.indexOf('data:image/') === 0) {
-            var im = H('img'); im.src = q; im.alt = 'QR';
-            im.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:8px;cursor:zoom-in';
-            im.addEventListener('click', function () { if (window.openImgModal) openImgModal(q); });
-            box.appendChild(im); box.style.width = box.style.height = '170px';
-        } else {
-            var i = H('i', 'fa-solid fa-qrcode'); i.style.cssText = 'font-size:4.5rem;color:#000'; box.appendChild(i);
-            box.style.width = box.style.height = '100px';
-        }
-    }
-    window.setPayMethod = function (type) {
-        cur = type === 'fib' ? 'fib' : 'fastpay';
-        $('depAccNum').innerText = PAY[cur].acc;
-        window.payMethod = cur === 'fib' ? 'FIB' : 'فاستپەی';
-        try { payMethod = window.payMethod; } catch (e) {}
-        $('payBtnFib').classList.toggle('selected', cur === 'fib');
-        $('payBtnFast').classList.toggle('selected', cur !== 'fib');
-        paintQr();
-    };
-    window.setPayMethod(cur);
-
-    function shrinkQr(file) {
-        return new Promise(function (res, rej) {
-            var u = URL.createObjectURL(file), im = new Image();
-            im.onload = function () {
-                var s = Math.min(1, 420 / Math.max(im.width, im.height)), w = Math.round(im.width * s), h = Math.round(im.height * s);
-                var c = document.createElement('canvas'); c.width = w; c.height = h;
-                var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(im, 0, 0, w, h);
-                URL.revokeObjectURL(u); res(c.toDataURL('image/jpeg', 0.9));
-            };
-            im.onerror = function () { URL.revokeObjectURL(u); rej(new Error('bad')); };
-            im.src = u;
+        var chips = dep.querySelector('.chips');
+        if (chips) [100000, 250000].forEach(function (v) {
+            var b = H('button', 'chip', num(v)); b.type = 'button';
+            b.addEventListener('click', function () { $('depAmount').value = v; dpUpdate(); });
+            chips.appendChild(b);
         });
-    }
 
-    // ---- ڕووکاری ئەدمین: QR ----
-    var card = $('accFib') && $('accFib').closest('.card-custom'), prevs = {};
-    if (card) {
-        var saveBtn = card.querySelector('.btn-action');
-        [['fib', 'وێنەی QR ی FIB'], ['fastpay', 'وێنەی QR ی فاستپەی']].forEach(function (m) {
-            var g = H('div', 'input-group'); g.appendChild(H('label', '', m[1] + ' (دەنێردرێت بە دەستبەجێ)'));
-            var row = H('div'); row.style.cssText = 'display:flex;align-items:center;gap:8px;flex-wrap:wrap';
-            var pv = H('img'); pv.style.cssText = 'width:64px;height:64px;object-fit:contain;background:#fff;border-radius:8px;display:none'; prevs[m[0]] = pv;
-            var f = document.createElement('input'); f.type = 'file'; f.accept = 'image/*'; f.style.display = 'none';
-            f.addEventListener('change', async function () {
-                var file = f.files[0], adm = requireAdmin(); f.value = ''; if (!file || !adm) return;
-                if (!/^image\//.test(file.type)) { alert('تکایە تەنها وێنە هەڵبژێرە'); return; }
-                try { var d = await shrinkQr(file); await db.ref('config/pay/' + m[0] + '/qr').set(d); addLog('admin', adm.name, 'QR ی ' + (m[0] === 'fib' ? 'FIB' : 'فاستپەی') + ' گۆڕدرا'); toast('QR پاشەکەوت کرا ✅'); }
-                catch (e) { alert('نەتوانرا QR پاشەکەوت بکرێت (ڕێگەپێدانی Firebase؟)'); }
+        var GU = {
+            fib: ['ئەپی FIB بکەرەوە و بچۆ ناو هەژمارەکەت.', 'بەشی ناردنی پارە (Transfer) هەڵبژێرە.', 'ژمارەی هەژمارەکە لێرەوە لەبەر بگرەوە و لە ئەپەکە دایبنێ (یان QR کۆدەکە سکان بکە ئەگەر هەبێت).', 'بڕی پارە بنووسە و ناردنەکە پشتڕاست بکەرەوە.', 'دوای سەرکەوتن، سکرینشۆتی ڕەسیدەکە بگرە.', 'بگەڕێوە ئێرە، بڕەکە بنووسە، ڕەسیدەکە دابنێ و داواکارییەکە بنێرە.'],
+            fastpay: ['ئەپی فاستپەی بکەرەوە و بچۆ ناو هەژمارەکەت.', 'بەشی ناردنی پارە هەڵبژێرە.', 'ژمارەی هەژمارەکە لێرەوە لەبەر بگرەوە و لە ئەپەکە دایبنێ (یان QR کۆدەکە سکان بکە ئەگەر هەبێت).', 'بڕی پارە بنووسە و ناردنەکە پشتڕاست بکەرەوە.', 'دوای سەرکەوتن، سکرینشۆتی ڕەسیدەکە بگرە.', 'بگەڕێوە ئێرە، بڕەکە بنووسە، ڕەسیدەکە دابنێ و داواکارییەکە بنێرە.']
+        };
+        var gbody = null, gkey = '';
+        var acc = dep.querySelector('.pay-acc');
+        if (acc && !dep.querySelector('.gv-help')) {
+            var guide = H('div', 'gv-help'), gb = H('button', 'gv-hbtn'); gb.type = 'button';
+            var gl = H('span', 'l'); gl.appendChild(H('i', 'fa-solid fa-book-open')); gl.appendChild(H('span', '', 'ڕێنمایی: چۆن پارەکە بنێرم؟'));
+            gb.appendChild(gl); gb.appendChild(H('i', 'fa-solid fa-chevron-down'));
+            gb.addEventListener('click', function () { guide.classList.toggle('open'); });
+            gbody = H('div', 'gv-hp'); guide.appendChild(gb); guide.appendChild(gbody);
+            acc.after(guide);
+        }
+
+        var sumBox = H('div', 'dp-sum'), noteBox = H('div', 'dp-note');
+        var submit = [].slice.call(dep.children).filter(function (x) { return x.classList.contains('btn-action'); }).pop();
+        if (submit) { dep.insertBefore(sumBox, submit); dep.insertBefore(noteBox, submit); }
+
+        function dpUpdate() {
+            var cu = currentUser(); if (!cu) return;
+            var meth = (typeof payMethod !== 'undefined') ? payMethod : 'FIB';
+            var amt = Math.floor(Number($('depAmount').value)) || 0;
+            var pend = getRequests().filter(function (r) { return r.kind === 'deposit' && r.status === 'pending'; }).length;
+
+            strip.textContent = '';
+            strip.appendChild(H('span', '', 'باڵانسی ئێستا: ' + num(cu.balance) + ' دینار'));
+            strip.appendChild(H('span', '', pend ? ('داواکاری چاوەڕوان: ' + pend) : 'هیچ داواکارییەکی چاوەڕوان نییە'));
+
+            sumBox.textContent = ''; sumBox.appendChild(H('h5', '', 'پوختەی داواکارییەکەت'));
+            [['شێوازی پارەدان', meth === 'FIB' ? 'FIB' : 'فاستپەی'], ['ژمارەی هەژمار', $('depAccNum').innerText],
+             ['بڕی نێردراو', amt ? num(amt) + ' دینار' : '—'], ['باڵانس دوای قبوڵکردن', amt ? num(cu.balance + amt) + ' دینار' : '—']].forEach(function (r) {
+                var row = H('div', 'dp-row'); row.appendChild(H('span', '', r[0])); row.appendChild(H('span', '', r[1])); sumBox.appendChild(row);
             });
-            var up = miniBtn('هەڵبژاردنی وێنە', function () { f.click(); });
-            var rm = miniBtn('لابردن', async function () {
-                var adm = requireAdmin(); if (!adm) return;
-                try { await db.ref('config/pay/' + m[0] + '/qr').remove(); addLog('admin', adm.name, 'QR لابرا'); toast('لابرا ✅'); } catch (e) { alert('کێشە ڕوویدا'); }
-            }, 'bad');
-            row.appendChild(pv); row.appendChild(up); row.appendChild(rm); g.appendChild(row); g.appendChild(f);
-            card.insertBefore(g, saveBtn);
-        });
-    }
-    function paintAdminPay() {
-        ['fib', 'fastpay'].forEach(function (m) {
-            var p = prevs[m]; if (!p) return;
-            var q = PAY[m].qr; if (q) { p.src = q; p.style.display = 'block'; } else { p.removeAttribute('src'); p.style.display = 'none'; }
-        });
-        var a = $('accFib'), b = $('accFast');
-        if (a && document.activeElement !== a) a.value = PAY.fib.acc;
-        if (b && document.activeElement !== b) b.value = PAY.fastpay.acc;
-    }
-    window.saveAccounts = async function () {
-        var adm = requireAdmin(); if (!adm) return;
-        var fib = $('accFib').value.trim(), fast = $('accFast').value.trim();
-        if (!fib || !fast) { alert('هەردوو ژمارەکە بنووسە'); return; }
-        try {
-            await db.ref('config/pay').update({ 'fib/acc': fib, 'fastpay/acc': fast });
-            addLog('admin', adm.name, 'ژمارەی هەژماری FIB و فاستپەی گۆڕدرا'); toast('پاشەکەوت کرا، هەموو کەس دەیبینێت ✅');
-        } catch (e) { alert('نەتوانرا پاشەکەوت بکرێت (ڕێگەپێدانی Firebase؟)'); }
-    };
-    var _ra = window.renderAdmin;
-    window.renderAdmin = function () { _ra.apply(this, arguments); paintAdminPay(); };
 
+            var k = meth === 'FIB' ? 'fib' : 'fastpay';
+            if (gbody && gkey !== k) {
+                gkey = k; gbody.textContent = '';
+                var bx = H('div'); GU[k].forEach(function (s, i) { var r = H('div', 'wg-r'); r.appendChild(H('span', 'wg-n', String(i + 1))); r.appendChild(H('div', 'wg-t', s)); bx.appendChild(r); });
+                gbody.appendChild(bx);
+            }
+        }
+        // تێبینییە گرنگەکان (جارێک دروست دەکرێن)
+        noteBox.appendChild(H('h5', '', 'تێبینی گرنگ'));
+        var ul = H('ul');
+        ['بڕی نووسراو دەبێت ڕێک وەک ئەو بڕە بێت کە ناردوتە.',
+         'وێنەی ڕەسید دەبێت ڕوون بێت و بڕ و کات و ژمارەی وەرگر تێیدا دیار بێت.',
+         'دوای ناردن، داواکارییەکەت دەچێتە لای ئەدمین. دۆخی لە «داواکارییەکانم» (لە خوارەوە) دەبینیت.',
+         'ئەگەر ماوەیەکی زۆر چاوەڕێ بوویت، لە ڕێگەی پشتگیرییەوە پەیوەندی بکە.'].forEach(function (t) { ul.appendChild(H('li', '', t)); });
+        noteBox.appendChild(ul);
+        var minLi = H('li'); ul.appendChild(minLi);
+        function minNote() { var c = dbGet('spayx_cfg', {}) || {}, m = Math.floor(c.minDep) || 0; minLi.textContent = m ? ('کەمترین بڕی زیادکردن ' + num(m) + ' دینارە.') : ''; minLi.style.display = m ? '' : 'none'; }
+
+        $('depAmount').addEventListener('input', dpUpdate);
+        dep.addEventListener('click', function () { setTimeout(dpUpdate, 50); });
+        var _spm = window.setPayMethod;
+        if (typeof _spm === 'function') window.setPayMethod = function () { var r = _spm.apply(this, arguments); dpUpdate(); return r; };
+        setInterval(function () { var pw = $('pageWallet'); if (pw && pw.classList.contains('active')) { dpUpdate(); minNote(); } }, 1000);
+        dpUpdate(); minNote();
+    }
+
+    /* ================= ٥. پەڕەی گرەو ================= */
+    var pg = $('pageChallenge');
+    if (pg && !pg.querySelector('.ch-hero')) {
+        var ch = H('div', 'ch-hero');
+        ch.appendChild(H('h2', '', 'ڕکابەرێک بدۆزەرەوە 🎯'));
+        ch.appendChild(H('p', '', 'یارییەک و بڕی گرەو هەڵبژێرە، ژوورێک دروست بکە یان بچۆ ناو ژووری کەسێکی تر.'));
+        var hs = H('div', 'ch-hs'), d1 = H('div'), d2 = H('div'), b1 = H('b', '', '0'), b2 = H('b', '', '0');
+        b1.id = 'chHB'; b2.id = 'chHO';
+        d1.appendChild(b1); d1.appendChild(H('span', '', 'باڵانسی تۆ (دینار)'));
+        d2.appendChild(b2); d2.appendChild(H('span', '', 'ژووری کراوە'));
+        hs.appendChild(d1); hs.appendChild(d2); ch.appendChild(hs);
+        pg.insertBefore(ch, pg.firstChild);
+
+        var fee = $('roomFeeInput');
+        if (fee) {
+            var cs = H('div', 'chips');
+            [1000, 5000, 10000, 25000, 50000].forEach(function (v) {
+                var b = H('button', 'chip', num(v)); b.type = 'button';
+                b.addEventListener('click', function () { fee.value = v; fee.dispatchEvent(new Event('input')); });
+                cs.appendChild(b);
+            });
+            fee.after(cs);
+        }
+        var chStat = function () {
+            var cu = currentUser(); if (!cu) return;
+            var rs = dbGet('spayx_rooms', []); if (!Array.isArray(rs)) rs = [];
+            $('chHB').textContent = num(cu.balance);
+            $('chHO').textContent = rs.filter(function (r) { return r.status === 'open'; }).length;
+        };
+        setInterval(function () { if (pg.classList.contains('active')) chStat(); }, 1500); chStat();
+    }
+
+    /* ================= ٦. ڕێکخستنەکان و ئاگادارکردنەوە لە ڕێگەی Firebase (هەموو کەس دەبینێت) ================= */
+    var _ds = window.dbSet;
+    function isAdm() { var c = currentUser(); return !!(c && c.role === 'admin'); }
+    window.dbSet = function (k, v) {
+        var ok = _ds.apply(this, arguments);
+        if (ok && db && auth && auth.currentUser && isAdm()) {
+            if (k === 'spayx_cfg') db.ref('config/app/cfg').set(v).catch(function () {});
+            else if (k === 'spayx_chset') db.ref('config/app/chset').set(v).catch(function () {});
+        }
+        return ok;
+    };
+    var offCfg = null;
     if (auth) auth.onAuthStateChanged(function (u) {
-        if (offPay) { offPay(); offPay = null; }
+        if (offCfg) { offCfg(); offCfg = null; }
         if (!u) return;
-        var ref = db.ref('config/pay'), cb = function (s) {
+        var ref = db.ref('config/app'), cb = function (s) {
             var v = s.val() || {};
-            ['fib', 'fastpay'].forEach(function (m) {
-                var x = v[m] || {};
-                PAY[m].acc = (typeof x.acc === 'string' && x.acc) ? x.acc : D[m].acc;
-                PAY[m].qr = (typeof x.qr === 'string') ? x.qr : '';
-            });
-            try { dbSet('spayx_accounts', { fib: PAY.fib.acc, fastpay: PAY.fastpay.acc }); } catch (e) {}
-            window.setPayMethod(cur); paintAdminPay();
+            if (v.cfg) _ds('spayx_cfg', v.cfg);
+            if (v.chset) _ds('spayx_chset', v.chset);
         };
         ref.on('value', cb, function () {});
-        offPay = function () { ref.off('value', cb); };
+        offCfg = function () { ref.off('value', cb); };
     });
 
-    /* ================= ٦. پرۆفایلی نوێ ================= */
-    var pg = $('pageProfile');
-    if (pg) {
-        pg.innerHTML =
-        '<div class="pf-hero"><div class="pf-av"><span id="pfInit">?</span></div>' +
-        '<h3 class="pf-name" id="profUsername"></h3>' +
-        '<div class="pf-st"><i class="fa-solid fa-circle"></i> چالاکە</div>' +
-        '<div class="pf-since" id="pfSince"></div></div>' +
+    // ناردنی ئاگادارکردنەوە بۆ هەموو ئامێرەکان
+    window.sendNotif = async function () {
+        var adm = requireAdmin(); if (!adm) return;
+        var to = $('notifUser').value.trim().toLowerCase(), text = $('notifText').value.trim();
+        if (!text) { alert('دەقی ئاگادارکردنەوە بنووسە'); return; }
+        var users = getUsers().filter(function (u) { return u.role !== 'admin' && u.id; });
+        var targets = to ? users.filter(function (u) { return u.key === to; }) : users;
+        if (!targets.length) { alert('ئەم بەکارهێنەرە نییە'); return; }
+        try {
+            await Promise.all(targets.map(function (u) { return db.ref('notifs/' + u.id).push({ t: Date.now(), text: text }); }));
+            addLog('admin', adm.name, 'ئاگادارکردنەوە بۆ ' + (to || 'هەموو') + ': ' + text);
+            $('notifText').value = ''; $('notifUser').value = '';
+            toast('ئاگادارکردنەوەکە نێردرا ✅');
+        } catch (e) { alert('نەتوانرا بنێردرێت (ڕێگەپێدانی Firebase؟)'); }
+    };
 
-        '<div class="pf-bal"><div><small>باڵانسی تۆ</small><b id="pfBal">0</b><span>دینار</span></div>' +
-        '<div class="pf-btns"><button class="pf-b" id="pfDep" type="button">زیادکردنی پارە</button><button class="pf-b alt" id="pfWd" type="button">ڕاکێشانی پارە</button></div></div>' +
-
-        '<div class="pf-grid">' +
-        '<div class="pf-t"><b id="pfTDep">0</b><span>کۆی پارەی زیادکراو</span></div>' +
-        '<div class="pf-t"><b id="pfTWd">0</b><span>کۆی پارەی ڕاکێشراو</span></div>' +
-        '<div class="pf-t"><b id="pfTPend">0</b><span>داواکاری چاوەڕوان</span></div>' +
-        '<div class="pf-t"><b id="pfTOk">0</b><span>داواکاری قبوڵکراو</span></div></div>' +
-
-        '<div class="card-custom"><div class="pf-h"><i class="fa-solid fa-id-card"></i> زانیاری هەژمار</div>' +
-        '<div class="profile-row-item"><span style="color:var(--text-muted);">ناوی هەژمار:</span><span id="profileUserVal" style="font-weight:800;"></span></div>' +
-        '<div class="profile-row-item"><span style="color:var(--text-muted);">بەرواری دروستکردن:</span><span id="pfCreated"></span></div>' +
-        '<div class="profile-row-item" id="pfGidRow" style="display:none;"><span style="color:var(--text-muted);">Game ID:</span><span id="pfGid" style="direction:ltr;"></span></div></div>' +
-
-        '<div class="card-custom"><div class="pf-h" style="color:var(--accent-gold);"><i class="fa-solid fa-key" style="color:var(--accent-gold);"></i> گۆڕینی وشەی نهێنی</div>' +
-        '<div class="input-group"><label>وشەی نهێنی ئێستا</label><input type="password" id="pfOld" class="input-field" placeholder="******" autocomplete="current-password"></div>' +
-        '<div class="input-group"><label>وشەی نهێنی نوێ (لانیکەم ٨ پیت)</label><input type="password" id="pfNew" class="input-field" placeholder="******" autocomplete="new-password"></div>' +
-        '<button class="btn-action" id="pfPass" type="button" style="background:rgba(255,203,92,.18)!important;color:var(--accent-gold)!important;border:1px solid var(--accent-gold)!important;box-shadow:none!important;">نوێکردنەوەی وشەی نهێنی</button>' +
-        '<button class="btn-action" type="button" style="background:linear-gradient(135deg,#ff7a9c,#e0457a)!important;color:#fff!important;margin-top:14px;" onclick="handleLogout()">چوونەدەرەوە</button></div>';
-
-        var cp = H('div', 'sx-copy'); cp.appendChild(H('b', '', 'SPAY X'));
-        cp.appendChild(H('div', '', '© 2026 SPAY X · هەموو مافەکانی ئەم ماڵپەڕە بۆ SPAY X پارێزراو'));
-        pg.appendChild(cp);
-
-        $('pfDep').addEventListener('click', function () { switchPage('wallet'); switchWalletMode('deposit'); });
-        $('pfWd').addEventListener('click', function () { switchPage('wallet'); switchWalletMode('withdraw'); });
-        $('pfPass').addEventListener('click', async function () {
-            var cu = requireUser(); if (!cu) return;
-            var o = $('pfOld').value, n = $('pfNew').value;
-            if (!o || !n) { alert('هەردوو خانەکە پڕبکەرەوە'); return; }
-            if (n.length < 8) { alert('وشەی نهێنی دەبێت لانیکەم ٨ پیت بێت'); return; }
-            if (n.length > 100) { alert('وشەی نهێنی زۆر درێژە'); return; }
-            var u = auth && auth.currentUser; if (!u) { alert('تکایە دووبارە بچۆ ژوورەوە'); return; }
-            try {
-                await u.reauthenticateWithCredential(fb.auth.EmailAuthProvider.credential(u.email, o));
-                await u.updatePassword(n);
-                addLog('password', cu.name, 'وشەی نهێنی گۆڕدرا');
-                $('pfOld').value = ''; $('pfNew').value = ''; toast('وشەی نهێنی نوێکرایەوە ✅');
-            } catch (e) {
-                var c = (e && e.code) || '';
-                alert(/wrong-password|invalid-credential|invalid-login/.test(c) ? 'وشەی نهێنی ئێستا هەڵەیە' : (/too-many/.test(c) ? 'هەوڵی زۆر دا. دواتر هەوڵ بدەرەوە' : 'نەتوانرا وشەی نهێنی بگۆڕدرێت'));
-            }
-        });
-
-        function paintProfile() {
-            var cu = currentUser(); if (!cu) return;
-            var reqs = getRequests().filter(function (r) { return r.key === cu.key; });
-            var sum = function (k) { return reqs.filter(function (r) { return r.kind === k && r.status === 'approved'; }).reduce(function (s, r) { return s + r.amount; }, 0); };
-            $('pfInit').textContent = cu.name.charAt(0).toUpperCase();
-            $('profUsername').textContent = cu.name;
-            $('profileUserVal').textContent = cu.name;
-            var d = fmtDate(cu.createdAt || Date.now()).slice(0, 10);
-            $('pfSince').textContent = 'ئەندام لە ' + d; $('pfCreated').textContent = d;
-            $('pfBal').textContent = money(cu.balance);
-            $('pfTDep').textContent = money(sum('deposit')); $('pfTWd').textContent = money(sum('withdraw'));
-            $('pfTPend').textContent = reqs.filter(function (r) { return r.status === 'pending'; }).length;
-            $('pfTOk').textContent = reqs.filter(function (r) { return r.status === 'approved'; }).length;
-            var g = cu.gameId || ''; $('pfGidRow').style.display = g ? 'flex' : 'none'; $('pfGid').textContent = g;
-        }
-        var _sp = window.switchPage;
-        window.switchPage = function (p) { _sp(p); if (p === 'profile') paintProfile(); };
-        setInterval(function () { if (pg.classList.contains('active')) paintProfile(); }, 2500);
+    /* ================= ٧. پانێڵی ئەدمین: زانیاری و ئامرازی زیاتر ================= */
+    function agoTxt(t) {
+        var m = Math.floor((Date.now() - t) / 60000);
+        if (m < 1) return 'ئێستا'; if (m < 60) return m + ' خولەک لەمەوبەر';
+        var h = Math.floor(m / 60); if (h < 24) return h + ' کاتژمێر لەمەوبەر';
+        return Math.floor(h / 24) + ' ڕۆژ لەمەوبەر';
     }
+    function sumBy(list, f) { return list.filter(f).reduce(function (s, r) { return s + r.amount; }, 0); }
+    function copyTxt(t) { if (navigator.clipboard) navigator.clipboard.writeText(String(t)).catch(function () {}); toast('لەبەرگیرایەوە ✅'); }
+
+    // ---- داواکارییەکان: گەڕان، فلتەری جۆر، کۆی گشتی، لەبەرگرتنەوەی ژمارەی هەژمار ----
+    var rf = $('reqFilter');
+    if (rf && !$('reqKind')) {
+        var tot = H('div', 'card-custom ad-tot'); tot.id = 'reqTot';
+        var q = H('input', 'input-field'); q.id = 'reqQ'; q.placeholder = 'گەڕان بە ناوی بەکارهێنەر...'; q.style.marginBottom = '10px';
+        var kind = H('select', 'input-field'); kind.id = 'reqKind'; kind.style.marginBottom = '10px';
+        [['all', 'هەموو جۆرەکان'], ['deposit', 'زیادکردنی پارە'], ['withdraw', 'ڕاکێشانی پارە']].forEach(function (o) { var op = H('option', '', o[1]); op.value = o[0]; kind.appendChild(op); });
+        rf.before(tot); rf.before(q); rf.before(kind);
+        q.addEventListener('input', function () { renderAdminRequests(); });
+        kind.addEventListener('change', function () { renderAdminRequests(); });
+    }
+    var _rr = window.renderAdminRequests;
+    window.renderAdminRequests = function () {
+        _rr.apply(this, arguments);
+        var box = $('adminReqList'); if (!box || !$('reqKind')) return;
+        var reqs = getRequests(), list = reqs.slice().sort(function (a, b) { return b.t - a.t; });
+        var pd = reqs.filter(function (r) { return r.kind === 'deposit' && r.status === 'pending'; });
+        var pw = reqs.filter(function (r) { return r.kind === 'withdraw' && r.status === 'pending'; });
+        var tt = $('reqTot'); tt.textContent = '';
+        tt.appendChild(H('div', 'admin-name', '📊 پوختەی داواکارییەکان'));
+        var tm = H('div', 'admin-meta', 'چاوەڕێی زیادکردن: ' + pd.length + ' (' + num(sumBy(pd, function () { return true; })) + ' دینار)\nچاوەڕێی ڕاکێشان: ' + pw.length + ' (' + num(sumBy(pw, function () { return true; })) + ' دینار)');
+        tm.style.whiteSpace = 'pre-line'; tt.appendChild(tm);
+
+        var kind = $('reqKind').value, qv = $('reqQ').value.trim().toLowerCase(), us = getUsers();
+        var cards = [].slice.call(box.children).filter(function (c) { return c.classList.contains('card-custom'); });
+        cards.forEach(function (c, i) {
+            var r = list[i]; if (!r) return;
+            var ok = (kind === 'all' || r.kind === kind) && (!qv || String(r.user).toLowerCase().indexOf(qv) > -1);
+            if (!ok) { c.style.display = 'none'; return; }
+            var u = us.find(function (x) { return x.key === r.key; });
+            var txt = (u ? 'باڵانسی ئێستا: ' + num(u.balance) + ' دینار' + (u.gameId ? ' | Game ID: ' + u.gameId : '') : '') + (r.status === 'pending' ? '\n⏱ ' + agoTxt(r.t) : '');
+            var first = c.querySelector('.admin-meta'); if (!first) return;
+            var meta = H('div', 'admin-meta', txt); meta.style.whiteSpace = 'pre-line';
+            var row = H('div', 'admin-actions');
+            row.appendChild(miniBtn('لەبەرگرتنەوەی ژمارەی هەژمار', function () { copyTxt(r.account); }));
+            first.after(row); first.after(meta);
+        });
+    };
+
+    // ---- بەکارهێنەران: Game ID، کۆی پارە، ئاگادارکردنەوە ----
+    function notifyOne(u) {
+        var adm = requireAdmin(); if (!adm || !db || !u.id) return;
+        var t = prompt('دەقی ئاگادارکردنەوە بۆ «' + u.name + '»:'); if (!t || !t.trim()) return;
+        t = t.trim().slice(0, 300);
+        db.ref('notifs/' + u.id).push({ t: Date.now(), text: t }).then(function () { addLog('admin', adm.name, 'ئاگادارکردنەوە بۆ ' + u.name + ': ' + t); toast('نێردرا ✅'); })
+            .catch(function () { alert('نەتوانرا بنێردرێت'); });
+    }
+    var _ru = window.renderAdminUsers;
+    window.renderAdminUsers = function () {
+        _ru.apply(this, arguments);
+        var box = $('adminUsersList'); if (!box) return;
+        var us = getUsers(), reqs = getRequests();
+        var cards = [].slice.call(box.children).filter(function (c) { return c.classList.contains('card-custom'); });
+        cards.forEach(function (c, i) {
+            var u = us[i]; if (!u || u.role === 'admin') return;
+            var mine = reqs.filter(function (r) { return r.key === u.key; });
+            var d = sumBy(mine, function (r) { return r.kind === 'deposit' && r.status === 'approved'; });
+            var w = sumBy(mine, function (r) { return r.kind === 'withdraw' && r.status === 'approved'; });
+            var p = mine.filter(function (r) { return r.status === 'pending'; }).length;
+            var meta = H('div', 'admin-meta', 'Game ID: ' + (u.gameId || '—') + '\nزیادکراو: ' + num(d) + ' | ڕاکێشراو: ' + num(w) + ' | چاوەڕوان: ' + p);
+            meta.style.whiteSpace = 'pre-line';
+            var acts = c.querySelector('.admin-actions');
+            if (acts) { acts.before(meta); acts.appendChild(miniBtn('ئاگادارکردنەوە', function () { notifyOne(u); })); }
+        });
+    };
+
+    // ---- پوختەی دارایی لە تابی «پوختە» ----
+    var ov = $('adminOvBox'), fin = H('div'); fin.id = 'adFin';
+    if (ov) ov.insertBefore(fin, ov.children[1] || null);
+    function paintFin() {
+        if (!ov || ov.style.display === 'none' || !isAdm()) return;
+        var reqs = getRequests(), d0 = new Date(); d0.setHours(0, 0, 0, 0); d0 = d0.getTime();
+        var dep = function (r) { return r.kind === 'deposit'; }, wd = function (r) { return r.kind === 'withdraw'; }, ap = function (r) { return r.status === 'approved'; }, pe = function (r) { return r.status === 'pending'; };
+        var dAll = sumBy(reqs, function (r) { return dep(r) && ap(r); }), wAll = sumBy(reqs, function (r) { return wd(r) && ap(r); });
+        var dec = reqs.filter(function (r) { return r.status === 'approved' || r.status === 'rejected'; });
+        var rate = dec.length ? Math.round(dec.filter(ap).length / dec.length * 100) : 0;
+        var tiles = [
+            [num(sumBy(reqs, function (r) { return dep(r) && ap(r) && r.t >= d0; })), 'زیادکراو ئەمڕۆ'],
+            [num(sumBy(reqs, function (r) { return wd(r) && ap(r) && r.t >= d0; })), 'ڕاکێشراو ئەمڕۆ'],
+            [num(sumBy(reqs, function (r) { return dep(r) && pe(r); })), 'چاوەڕێی زیادکردن'],
+            [num(sumBy(reqs, function (r) { return wd(r) && pe(r); })), 'چاوەڕێی ڕاکێشان (قەرز)'],
+            [num(dAll - wAll), 'جیاوازی (زیادکراو − ڕاکێشراو)'],
+            [rate + '%', 'ڕێژەی قبوڵکردن']
+        ];
+        fin.textContent = '';
+        var c = H('div', 'card-custom'); c.appendChild(H('div', 'admin-name', '💰 پوختەی دارایی (دینار)'));
+        var g = H('div', 'ov-grid'); g.style.marginTop = '10px';
+        tiles.forEach(function (t) { var d = H('div', 'ov-tile'); d.appendChild(H('b', '', t[0])); d.appendChild(H('span', '', t[1])); g.appendChild(d); });
+        c.appendChild(g);
+        var by = {}; reqs.filter(function (r) { return dep(r) && ap(r); }).forEach(function (r) { by[r.user] = (by[r.user] || 0) + r.amount; });
+        var top = Object.keys(by).sort(function (a, b) { return by[b] - by[a]; }).slice(0, 5);
+        c.appendChild(H('div', 'admin-name', '🏅 زۆرترین پارە زیادکەرەکان')).style.margin = '6px 0';
+        if (!top.length) c.appendChild(H('div', 'empty-note', 'هیچ داتایەک نییە'));
+        top.forEach(function (n, i) { c.appendChild(H('div', 'log-line', (i + 1) + '. ' + n + ' — ' + num(by[n]) + ' دینار')); });
+        fin.appendChild(c);
+    }
+    var _sat = window.switchAdminTab;
+    window.switchAdminTab = function (t) { _sat.apply(this, arguments); if (t === 'ov') paintFin(); };
+    setInterval(paintFin, 3000);
 })();
 </script>
-<!DOCTYPE html>
-<html lang="ckb" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <title>SPAY X - پلاتفۆرمی جیهانی یارییەکان و گرەوکردن</title>
-    <!-- Noto Kufi Arabic Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Firebase SDK (v8) -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-    <style>
-        :root {
-            --bg-dark: #04060f;
-            --card-bg: rgba(10, 15, 30, 0.88);
-            --primary-glow: #00f2fe;
-            --accent-purple: #8a2be2;
-            --accent-pink: #ff007f;
-            --accent-green: #00f5d4;
-            --accent-gold: #ffc107;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --font-kufi: 'Noto Kufi Arabic', sans-serif;
-            --border-glow: rgba(0, 242, 254, 0.35);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0; padding: 0;
-            font-family: var(--font-kufi);
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding-bottom: 90px;
-            font-size: 15px;
-            position: relative;
-        }
-
-        /* --- Auth Section --- */
-        .auth-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .auth-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 22px;
-            width: 100%;
-            max-width: 420px;
-            padding: 28px 22px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(20px);
-            text-align: center;
-        }
-
-        .brand-logo-3d {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            filter: drop-shadow(0 0 12px rgba(0,242,254,0.35));
-        }
-
-        .input-group {
-            text-align: right;
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(10, 14, 26, 0.5);
-            color: var(--text-main);
-            font-size: 0.9rem;
-            outline: none;
-            font-weight: 700;
-        }
-
-        .btn-action {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            border: none;
-            background: linear-gradient(135deg, var(--primary-glow), #0099ff);
-            color: #000;
-            font-size: 0.95rem;
-            font-weight: 900;
-            cursor: pointer;
-            margin-top: 8px;
-            box-shadow: 0 5px 18px rgba(0, 242, 254, 0.25);
-        }
-
-        /* --- Header --- */
-        .app-header {
-            position: sticky;
-            top: 0; z-index: 1000;
-            background: rgba(4, 6, 15, 0.92);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-glow);
-            padding: 8px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        .header-logo {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: var(--primary-glow);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .balance-box {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px;
-            padding: 4px 8px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .btn-deposit-top {
-            background: linear-gradient(135deg, var(--accent-green), #00bbf9);
-            color: #000;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 900;
-            cursor: pointer;
-        }
-
-        /* --- Main Layout --- */
-        .page-content {
-            display: none;
-            padding: 14px 16px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .page-content.active {
-            display: block;
-        }
-
-        .card-custom {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 18px;
-            padding: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-        }
-
-        .spayx-title {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff, var(--primary-glow), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        /* Bottom Nav */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border-glow);
-            display: flex;
-            justify-content: space-around;
-            padding: 8px 0;
-            z-index: 1000;
-        }
-
-        .nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        .nav-link.active {
-            color: var(--primary-glow);
-            text-shadow: 0 0 8px var(--primary-glow);
-        }
-
-        .nav-link i { font-size: 1.2rem; }
-    </style>
-</head>
-<body>
-
-    <!-- 1. Auth Section -->
-    <div id="authSection" class="auth-container">
-        <div class="auth-card">
-            <div class="brand-logo-3d">
-                <i class="fa-solid fa-bolt"></i>
-                <span>SPAY X</span>
-            </div>
-
-            <div id="registerBox">
-                <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 18px; font-weight: 700;">دروستکردنی هەژماری نوێ</p>
-                
-                <div class="input-group">
-                    <label>ناوی بەکارهێنەر</label>
-                    <input type="text" id="regUser" class="input-field" placeholder="ناوی بەکارهێنەر">
-                </div>
-                <div class="input-group">
-                    <label>وشەی نهێنی</label>
-                    <input type="password" id="regPass" class="input-field" placeholder="******">
-                </div>
-
-                <button class="btn-action" onclick="handleRegister()">تۆمارکردن</button>
-                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">
-                    هەژمارت هەیە؟ <span style="color: var(--primary-glow); cursor: pointer;" onclick="toggleAuth('login')">چوونەژوورەوە</span>
-                </p>
-            </div>
-
-            <div id="loginBox" style="display: none;">
-                <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 18px; font-weight: 700;">چوونەژوورەوە</p>
-
-                <div class="input-group">
-                    <label>ناوی بەکارهێنەر</label>
-                    <input type="text" id="loginUser" class="input-field" placeholder="ناوی بەکارهێنەر">
-                </div>
-                <div class="input-group">
-                    <label>وشەی نهێنی</label>
-                    <input type="password" id="loginPass" class="input-field" placeholder="******">
-                </div>
-
-                <button class="btn-action" onclick="handleLogin()">چوونەژوورەوە</button>
-                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">
-                    هەژمارت نییە؟ <span style="color: var(--primary-glow); cursor: pointer;" onclick="toggleAuth('reg')">تۆمارکردن</span>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Main App -->
-    <div id="appSection" style="display: none;">
-
-        <header class="app-header">
-            <div class="header-logo"><i class="fa-solid fa-bolt"></i> SPAY X</div>
-            <div class="header-right">
-                <button class="btn-deposit-top" onclick="switchPage('wallet')">زیادکردنی پارە</button>
-                <div class="balance-box">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span id="userBalanceDisplay">0</span> <small>دینار</small>
-                </div>
-            </div>
-        </header>
-
-        <!-- PAGE 1: HOME -->
-        <div class="page-content active" id="pageHome">
-            <div class="card-custom" style="text-align: center;">
-                <h1 class="spayx-title">SPAY X</h1>
-                <p style="color: var(--text-muted); font-weight: 700;">پلاتفۆرمی ئۆنلاینی یاری دۆمینەی 1v1 و گرەوکردن</p>
-            </div>
-        </div>
-
-        <!-- PAGE 2: CHALLENGE 1v1 -->
-        <div class="page-content" id="pageChallenge">
-            <div class="card-custom" style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-weight: 800;">ژووری دۆمینەی 1v1</span>
-                <button class="btn-action" style="width: auto; padding: 6px 14px; margin: 0;" onclick="toggleCreateRoomForm()">+ دروستکردنی ژوور</button>
-            </div>
-
-            <div id="createRoomBox" class="card-custom" style="display: none;">
-                <h4 style="font-size: 0.9rem; color: var(--primary-glow); margin-bottom: 10px;">دروستکردنی ژووری ئۆنلاین</h4>
-                <div class="input-group">
-                    <label>بڕی گرەو (دینار)</label>
-                    <input type="number" class="input-field" id="dominoFeeInput" placeholder="5000">
-                </div>
-                <button class="btn-action" onclick="createOnlineDominoRoom()">بڵاوکردنەوەی ژوور لە فایربەیس</button>
-            </div>
-
-            <h4 style="font-size: 0.95rem; margin: 15px 0 8px; font-weight: 800;">ژوورە ئاکتیڤەکانی Firebase:</h4>
-            <div id="firebaseRoomsList">
-                <div style="text-align: center; color: var(--text-muted); padding: 10px;">چاوەڕوانی باربوونی ژوورەکان بپکە...</div>
-            </div>
-        </div>
-
-        <!-- PAGE 3: WALLET -->
-        <div class="page-content" id="pageWallet">
-            <div class="card-custom">
-                <h3 style="margin-bottom: 12px; color: var(--primary-glow);">جزدان</h3>
-                <div class="input-group">
-                    <label>بڕی پارە (دینار)</label>
-                    <input type="number" id="depositAmount" class="input-field" placeholder="10000">
-                </div>
-                <button class="btn-action" onclick="processDeposit()">زیادکردن بۆ داتابەیس</button>
-            </div>
-        </div>
-
-        <!-- PAGE 4: PROFILE -->
-        <div class="page-content" id="pageProfile">
-            <div class="card-custom" style="text-align: center;">
-                <i class="fa-solid fa-user-circle" style="font-size: 3rem; color: var(--primary-glow); margin-bottom: 8px;"></i>
-                <h3 id="profUsername">ناوی بەکارهێنەر</h3>
-                <button class="btn-action" style="background: linear-gradient(135deg, var(--accent-pink), #e6005c); color: #fff; margin-top: 15px;" onclick="handleLogout()">دەرچوون</button>
-            </div>
-        </div>
-
-        <!-- Navigation Bar -->
-        <nav class="bottom-nav">
-            <div class="nav-link active" onclick="switchPage('home')"><i class="fa-solid fa-house"></i><span>سەرەکی</span></div>
-            <div class="nav-link" onclick="switchPage('challenge')"><i class="fa-solid fa-trophy"></i><span>چەلەنج</span></div>
-            <div class="nav-link" onclick="switchPage('wallet')"><i class="fa-solid fa-wallet"></i><span>جزدان</span></div>
-            <div class="nav-link" onclick="switchPage('profile')"><i class="fa-solid fa-user"></i><span>پڕۆفایل</span></div>
-        </nav>
-    </div>
-
-    <!-- JavaScript & Firebase Realtime Logic -->
-    <script>
-        // --- کۆدی فایربەیسەکەی تۆ ---
-        const firebaseConfig = {
-            apiKey: "AIzaSyAzmDcj76MQBLCHodBA5jjldgL_oAfleBI",
-            authDomain: "spay-x.firebaseapp.com",
-            databaseURL: "https://spay-x-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "spay-x",
-            storageBucket: "spay-x.firebasestorage.app",
-            messagingSenderId: "214904587307",
-            appId: "1:214904587307:web:0730ba32690da10779166e",
-            measurementId: "G-L5W30FZ542"
-        };
-
-        // دەستپێکردنی فایربەیس
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        const database = firebase.database();
-
-        let currentUser = null;
-        let userBalance = 0;
-
-        window.onload = function() {
-            const session = localStorage.getItem('spayx_session');
-            if (session) {
-                currentUser = session;
-                showApp(currentUser);
-            }
-        };
-
-        function toggleAuth(mode) {
-            if (mode === 'login') {
-                document.getElementById('registerBox').style.display = 'none';
-                document.getElementById('loginBox').style.display = 'block';
-            } else {
-                document.getElementById('registerBox').style.display = 'block';
-                document.getElementById('loginBox').style.display = 'none';
-            }
-        }
-
-        function handleRegister() {
-            const user = document.getElementById('regUser').value.trim();
-            const pass = document.getElementById('regPass').value;
-            if (!user || !pass) { alert('تکایە هەموو خانەکان پڕبکەرەوە'); return; }
-
-            // پاشکەوتکردنی بەکارهێنەری نوێ لە ناو Firebase
-            database.ref('users/' + user).set({
-                password: pass,
-                balance: 5000 // دیاریی بەخێرهاتن ۵,۰۰۰ دینار
-            }).then(() => {
-                localStorage.setItem('spayx_session', user);
-                currentUser = user;
-                showApp(user);
-            });
-        }
-
-        function handleLogin() {
-            const user = document.getElementById('loginUser').value.trim();
-            const pass = document.getElementById('loginPass').value;
-
-            database.ref('users/' + user).once('value', (snapshot) => {
-                const userData = snapshot.val();
-                if (userData && userData.password === pass) {
-                    localStorage.setItem('spayx_session', user);
-                    currentUser = user;
-                    showApp(user);
-                } else {
-                    alert('ناوی بەکارهێنەر یان وشەی نهێنی هەڵەیە!');
-                }
-            });
-        }
-
-        function showApp(username) {
-            document.getElementById('authSection').style.display = 'none';
-            document.getElementById('appSection').style.display = 'block';
-            document.getElementById('profUsername').innerText = username;
-
-            // خوێندنەوەی ئۆتۆماتیکیی باڵانس لە فایربەیس
-            database.ref('users/' + username + '/balance').on('value', (snapshot) => {
-                userBalance = snapshot.val() || 0;
-                document.getElementById('userBalanceDisplay').innerText = userBalance.toLocaleString();
-            });
-
-            // هێنانی ئۆتۆماتیکیی ژوورەکانی دۆمینە لە فایربەیس
-            loadFirebaseRooms();
-        }
-
-        function handleLogout() {
-            localStorage.removeItem('spayx_session');
-            location.reload();
-        }
-
-        function switchPage(page) {
-            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
-            if (page === 'home') { document.getElementById('pageHome').classList.add('active'); document.querySelectorAll('.nav-link')[0].classList.add('active'); }
-            else if (page === 'challenge') { document.getElementById('pageChallenge').classList.add('active'); document.querySelectorAll('.nav-link')[1].classList.add('active'); }
-            else if (page === 'wallet') { document.getElementById('pageWallet').classList.add('active'); document.querySelectorAll('.nav-link')[2].classList.add('active'); }
-            else if (page === 'profile') { document.getElementById('pageProfile').classList.add('active'); document.querySelectorAll('.nav-link')[3].classList.add('active'); }
-        }
-
-        function processDeposit() {
-            const amt = parseInt(document.getElementById('depositAmount').value);
-            if (!amt || amt <= 0) return;
-            
-            // زیادکردنی باڵانس لە فایربەیس
-            database.ref('users/' + currentUser + '/balance').set(userBalance + amt).then(() => {
-                alert('بڕی ' + amt.toLocaleString() + ' دینار زیادکرا!');
-                document.getElementById('depositAmount').value = '';
-            });
-        }
-
-        function toggleCreateRoomForm() {
-            const box = document.getElementById('createRoomBox');
-            box.style.display = box.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // --- دروستکردنی ژووری ئۆنلاین لە Firebase ---
-        function createOnlineDominoRoom() {
-            const fee = parseInt(document.getElementById('dominoFeeInput').value) || 5000;
-            if (userBalance < fee) { alert('باڵانست بەس نییە!'); return; }
-
-            const roomId = 'room_' + Date.now();
-
-            // بڕینی پارە لە فایربەیس
-            database.ref('users/' + currentUser + '/balance').set(userBalance - fee);
-
-            // دروستکردنی ژوور لە فایربەیس
-            database.ref('rooms/' + roomId).set({
-                host: currentUser,
-                fee: fee,
-                status: 'waiting',
-                player2: null,
-                winner: null
-            }).then(() => {
-                alert('ژوورەکەت دروست بوو! بەکارهێنەرانی تر دەتوانن جۆین ببن.');
-                toggleCreateRoomForm();
-            });
-        }
-
-        // --- بارکردنی ژوورە ڕاستەقینەکان لە Firebase ---
-        function loadFirebaseRooms() {
-            database.ref('rooms').on('value', (snapshot) => {
-                const rooms = snapshot.val();
-                const list = document.getElementById('firebaseRoomsList');
-                list.innerHTML = '';
-
-                if (!rooms) {
-                    list.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 10px;">هیچ ژوورێک ئامادە نییە، خۆت ژوورێک دروست بکە!</div>';
-                    return;
-                }
-
-                Object.keys(rooms).forEach(roomId => {
-                    const room = rooms[roomId];
-                    if (room.status === 'waiting') {
-                        const card = document.createElement('div');
-                        card.className = 'card-custom';
-                        card.style.display = 'flex';
-                        card.style.justifyContent = 'space-between';
-                        card.style.alignItems = 'center';
-                        card.innerHTML = `
-                            <div>
-                                <div style="font-weight: 800; font-size: 0.88rem;">ژووری دۆمینەی 1v1 (${room.host})</div>
-                                <small style="color: var(--accent-gold); font-size: 0.78rem;">گرەو: ${parseInt(room.fee).toLocaleString()} دینار</small>
-                            </div>
-                            <button class="btn-action" style="width: auto; padding: 6px 12px; margin: 0;" onclick="joinOnlineDominoRoom('${roomId}', ${room.fee})">جۆین (Join)</button>
-                        `;
-                        list.appendChild(card);
-                    }
-                });
-            });
-        }
-
-        // --- جۆینبوون لە ژووری یاریزانانی تر ---
-        function joinOnlineDominoRoom(roomId, fee) {
-            if (userBalance < fee) { alert('باڵانست بەس نییە بۆ جۆین بوون!'); return; }
-
-            // بڕینی پارەی گرەو لە فایربەیس
-            database.ref('users/' + currentUser + '/balance').set(userBalance - fee);
-
-            // بەستنەوەی یاریزانی دووەم لە Firebase
-            database.ref('rooms/' + roomId).update({
-                player2: currentUser,
-                status: 'playing'
-            }).then(() => {
-                alert('بە سەرکەوتوویی چوویتە ژوورەوە! یاری دۆمینەکە دەستپێدەکات.');
-            });
-        }
-    </script>
-</body>
-</html>
